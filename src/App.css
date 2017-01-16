@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+  font-size: 16px;
+  background-color: #BDD4DE;
+}
+.header {
+  background-color: #2B3A42;
+  height: 60px;
+  padding: 20px;
+  color: white;
+}
+.header li {
+  display: inline;
+  padding-left: 1em;
+  color: #EFEFEF;
+  font-size: 2em;
+  text-decoration: none;
+}
+.content {
+  display: inline-block;
+}
+
+.test {
+  float: left;
+}
+
+.QA {
+  padding-top: 2em;
+}
+.question {
+  margin-bottom: 1em;
+}
+.answer {
+  margin-bottom: 1em;
+}
+.submit {
+  margin-left: 1em;
+  margin-top: 1.25em;
+  float: right;
+  height: 5em;
+  background-color: #2B3A42;
+  border-radius: 8px;
+
+  color: #EFEFEF;
+
+
+}
+
+input {
+  font-size: 1.5em;
+  height: 2em;
+}
