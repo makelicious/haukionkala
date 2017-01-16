@@ -9,7 +9,9 @@ class QAForm extends React.Component {
     this.state = {
       qa: {
         question: '',
-        asnwer: ''
+        answer: '',
+        category: ''
+
       }
     };
 
@@ -28,7 +30,7 @@ class QAForm extends React.Component {
     this.setState({
       qa: Object.assign({}, this.state.qa, {
         question: '',
-        answer: ''
+        answer: '',
       })
     })
   }
@@ -46,18 +48,34 @@ class QAForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+        <label>
+        Question:
           <input
             type='text'
             name='question'
             value={this.state.qa.question}
             onChange={this.handleChange}
             />
+          </label>
+          <label>
+            Answer:
           <input
             type='text'
             name='answer'
             value={this.state.qa.answer}
             onChange={this.handleChange}
             />
+            </label>
+            <label>
+            Category (optional):
+            <input
+              type='text'
+              name='category'
+              value={this.state.qa.category}
+              onChange={this.handleChange}
+              />
+              </label>
+
           <button type="submit">
             Add Todo
           </button>
