@@ -1,11 +1,4 @@
-import React, { PropTypes } from 'react';
-
-// const Study = ({questions}) => (
-//   <div>
-//     <span>{questions.question}</span>
-//     <span>{questions.answer}</span>
-//   </div>
-// )
+import React from 'react';
 
 class Study extends React.Component {
   constructor() {
@@ -29,7 +22,7 @@ class Study extends React.Component {
     return(
       <div onClick={this.handleClick}>
         {view}
-        <span>Next</span>
+        <span onClick={this.props.onClick}>Next</span>
       </div>
     )
   }

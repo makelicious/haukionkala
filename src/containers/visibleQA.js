@@ -1,8 +1,7 @@
 import { connect } from 'react-redux'
 import QAList from '../components/qaList'
-import { toggleTodo, toggleAnswer } from '../actions/index'
 
-const getVisibleTodos = (questions, action) => {
+const getAllQAs = (questions, action) => {
   switch (action) {
     case 'SHOW_ALL':
       return questions
@@ -14,22 +13,13 @@ const getVisibleTodos = (questions, action) => {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    questions: getVisibleTodos(state.questions)
+    questions: getAllQAs(state.questions)
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onTodoClick: (id) => {
-      dispatch(toggleAnswer(id))
-    }
-  }
-}
-
-const VisibleTodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
+const allQAs = connect(
+  mapStateToProps
 )(QAList)
 
 
-export default VisibleTodoList
+export default allQAs

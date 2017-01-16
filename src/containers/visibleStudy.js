@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { prev, next } from '../actions/index'
+import { next } from '../actions/index'
 import Study from '../components/study'
 
-const getVisibleQA = (questions, current, action) => {
+const getCurrentQA = (questions, current, action) => {
   switch (action) {
     case 'SHOW_ALL':
       return questions
@@ -16,21 +16,22 @@ const getVisibleQA = (questions, current, action) => {
 const mapStateToProps = (state) => {
   console.log(state.questions[0]);
   return {
-    questions: getVisibleQA(state.questions, state.current)
+    questions: getCurrentQA(state.questions, state.current)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onClick: () => {
-      dispatch(prev)
+      dispatch(next())
     }
   }
 }
 
-const VisibleQA = connect(
-  mapStateToProps
+const currentQA = connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(Study)
 
 
-export default VisibleQA
+export default currentQA

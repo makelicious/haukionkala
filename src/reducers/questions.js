@@ -1,17 +1,11 @@
 import {
-  // NEXT_QUESTION,
-  // PREV_QUESTION,
-  TOGGLE_ANSWER,
-  ADD_QUESTION,
-  SHOW_QUESTIONS
+  ADD_QUESTION
 } from '../actions/index';
 
 
 
 
 const question = (state = {}, action) => {
-  console.log('current state is ', state, 'and action is ', action);
-
   switch (action.type) {
     case ADD_QUESTION:
       return {
@@ -23,7 +17,6 @@ const question = (state = {}, action) => {
       return state
   }
 }
-
 const questions = (state = [], action) => {
   switch (action.type) {
     case ADD_QUESTION:
@@ -31,10 +24,6 @@ const questions = (state = [], action) => {
         ...state,
         question(undefined, action)
       ]
-      case SHOW_QUESTIONS:
-      return {
-        state
-      }
     default:
       return state
   }
