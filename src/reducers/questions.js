@@ -1,13 +1,13 @@
 import {
-  ADD_QUESTION
+  ADD_CARD,
 } from '../actions/index';
 
 
 
 
-const question = (state = {}, action) => {
+const card = (state = {}, action) => {
   switch (action.type) {
-    case ADD_QUESTION:
+    case ADD_CARD:
       return {
         id: action.id,
         question: action.question,
@@ -17,16 +17,16 @@ const question = (state = {}, action) => {
       return state
   }
 }
-const questions = (state = [], action) => {
+const cards = (state = [], action) => {
   switch (action.type) {
-    case ADD_QUESTION:
+    case ADD_CARD:
       return [
         ...state,
-        question(undefined, action)
+        card(undefined, action)
       ]
     default:
       return state
   }
 }
 
-export default questions
+export default cards

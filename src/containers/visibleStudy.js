@@ -2,21 +2,22 @@ import { connect } from 'react-redux'
 import { next } from '../actions/index'
 import Study from '../components/study'
 
-const getCurrentQA = (questions, current, action) => {
+const getCurrentCard = (cards, current, action) => {
   switch (action) {
     case 'SHOW_ALL':
-      return questions
+      return cards
       default:
-      return questions[current]
+      return cards[current]
   }
 }
 
 
 
 const mapStateToProps = (state) => {
-  console.log(state.questions[0]);
+  console.log(state);
+  console.log(state.cards[0]);
   return {
-    questions: getCurrentQA(state.questions, state.current)
+    cards: getCurrentCard(state.cards, state.current)
   }
 }
 
@@ -28,10 +29,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const currentQA = connect(
+const currentCard = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Study)
 
 
-export default currentQA
+export default currentCard

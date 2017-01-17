@@ -1,9 +1,9 @@
 import React from 'react';
 import QA from './qa';
 
-const QAList = ({ questions }) => (
+const QAList = ({ cards }) => (
   <ul>
-    {questions.map(question =>
+    {cards.map(question =>
       <QA
         key={question.id}
         {...question}

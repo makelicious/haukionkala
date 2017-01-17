@@ -1,17 +1,17 @@
-export const NEXT_QUESTION = 'NEXT_QUESTION';
-export const ADD_QUESTION  = 'ADD_QUESTION';
+export const NEXT_CARD = 'NEXT_CARD';
+export const ADD_CARD  = 'ADD_CARD';
 let nextQuestionId = 0;
 
-export const addQuestion = (qa) => {
+export const addCard = (card) => {
   return {
-    type: ADD_QUESTION,
+    type: ADD_CARD,
     id: nextQuestionId++,
-    question: qa.question,
-    answer: qa.answer
+    question: card.question,
+    answer: card.answer
   }
 }
 export const next = () => {
   return {
-    type: NEXT_QUESTION,
+    type: NEXT_CARD,
   }
 }

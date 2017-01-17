@@ -1,25 +1,25 @@
 import { connect } from 'react-redux'
 import QAList from '../components/qaList'
 
-const getAllQAs = (questions, action) => {
+const getAllCards = (cards, action) => {
   switch (action) {
     case 'SHOW_ALL':
-      return questions
+      return cards
       default:
-        return questions
+        return cards
   }
 }
 
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    questions: getAllQAs(state.questions)
+    cards: getAllCards(state.cards)
   }
 }
 
-const allQAs = connect(
+const allCards = connect(
   mapStateToProps
 )(QAList)
 
 
-export default allQAs
+export default allCards

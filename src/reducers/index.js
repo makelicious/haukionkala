@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import questions from './questions'
+import cards from './questions'
 import current from './current'
 
 
 const qaApp = combineReducers({
-  questions,
+  cards,
   current
 })
 

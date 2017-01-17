@@ -17,7 +17,7 @@ class Study extends React.Component {
   }
   render() {
     console.log(this.props);
-    let view = this.state.jeah ? <span>{this.props.questions.answer}</span> : <span>{this.props.questions.question}</span>;
+    let view = this.state.jeah ? <span>{this.props.cards.answer}</span> : <span>{this.props.cards.question}</span>;
 
     return(
       <div onClick={this.handleClick}>

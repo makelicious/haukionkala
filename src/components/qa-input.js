@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addQuestion } from '../actions/index';
+import { addCard } from '../actions/index';
 
 
 class QAForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      qa: {
+      card: {
         question: '',
         answer: '',
         category: ''
@@ -26,9 +26,9 @@ class QAForm extends React.Component {
     console.log(this.props);
     event.preventDefault();
 
-    dispatch(addQuestion(this.state.qa));
+    dispatch(addCard(this.state.card));
     this.setState({
-      qa: Object.assign({}, this.state.qa, {
+      card: Object.assign({}, this.state.card, {
         question: '',
         answer: '',
       })
@@ -37,7 +37,7 @@ class QAForm extends React.Component {
 
   handleChange(event) {
     this.setState({
-      qa: Object.assign({}, this.state.qa, {
+      card: Object.assign({}, this.state.card, {
         [event.target.name]: event.target.value
       })
     })
@@ -48,34 +48,33 @@ class QAForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <label>
-        Question:
-          <input
-            type='text'
-            name='question'
-            value={this.state.qa.question}
-            onChange={this.handleChange}
+          <label>
+            Question:
+            <input
+              type='text'
+              name='question'
+              value={this.state.card.question}
+              onChange={this.handleChange}
             />
           </label>
           <label>
             Answer:
-          <input
-            type='text'
-            name='answer'
-            value={this.state.qa.answer}
-            onChange={this.handleChange}
+            <input
+              type='text'
+              name='answer'
+              value={this.state.card.answer}
+              onChange={this.handleChange}
             />
-            </label>
-            <label>
-            Category (optional):
+          </label>
+          <label>
+            Category: (optional)
             <input
               type='text'
               name='category'
-              value={this.state.qa.category}
+              value={this.state.card.category}
               onChange={this.handleChange}
-              />
-              </label>
-
+            />
+          </label>
           <button type="submit">
             Add Todo
           </button>

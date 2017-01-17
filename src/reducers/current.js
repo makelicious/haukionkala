@@ -1,9 +1,8 @@
 const current = (state = 0, action) => {
   switch(action.type) {
-    case 'NEXT_QUESTION':
+    case 'NEXT_CARD':
     return state + 1
-    case 'PREV_QUESTION':
-    return state + 1
+
   default:
   return state
   }

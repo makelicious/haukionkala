@@ -7,8 +7,8 @@ import App from './App';
 import './index.css';
 import QAForm from './components/qa-input';
 import qaApp from './reducers/index';
-import currentQA from './containers/visibleStudy'
-import getAllQAs from './containers/visibleQA'
+import currentCard from './containers/visibleStudy'
+import getAllCards from './containers/visibleQA'
 
 let store = createStore(qaApp)
 
@@ -18,9 +18,9 @@ render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App}>
-        <Router path='/categories' component={getAllQAs} />
+        <Router path='/categories' component={getAllCards} />
         <Route path='/add' component={QAForm} />
-        <Route path='/study' component={currentQA} />
+        <Route path='/study' component={currentCard} />
       </Route>
     </Router>
   </Provider>,
