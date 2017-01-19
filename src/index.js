@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import App from './App';
 import './index.css';
 import QAForm from './components/qa-input';
@@ -16,7 +16,7 @@ console.log(store.getState());
 
 render(
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route path='/' component={App}>
         <Router path='/categories' component={getAllCards} />
         <Route path='/add' component={QAForm} />

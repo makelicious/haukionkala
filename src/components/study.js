@@ -17,12 +17,22 @@ class Study extends React.Component {
   }
   render() {
     console.log(this.props);
-    let view = this.state.jeah ? <span>{this.props.cards.answer}</span> : <span>{this.props.cards.question}</span>;
+    let view = this.state.jeah ?
+      <div>
+        <p>Answer</p>
+        <span>{this.props.cards.answer}</span>
+      </div>
+      :
+      <div>
+        <p>Question</p>
+        <span>{this.props.cards.question}</span>
+      </div>
 
-    return(
-      <div onClick={this.handleClick}>
+    return (
+      <div onClick={this.handleClick} className='card-container'>
+      <p>Card {this.props.cards.id + 1} / {this.props.amountOfCards}</p>
         {view}
-        <span onClick={() =>{this.props.onClick(this.props.cards, this.props.amountOfCards)}}>Next</span>
+        <span className="fontawesome-arrow-right" onClick={() =>{this.props.onClick(this.props.cards, this.props.amountOfCards)}}></span>
       </div>
     )
   }

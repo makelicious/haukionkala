@@ -46,38 +46,32 @@ class QAForm extends React.Component {
   render() {
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Question:
+      <div className='form-container'>
+        <h2><span className="fontawesome-pencil-square"></span>Submit a new question</h2>
+        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+          <fieldset>
             <input
               type='text'
               name='question'
+              placeholder='Question:'
               value={this.state.card.question}
-              onChange={this.handleChange}
             />
-          </label>
-          <label>
-            Answer:
             <input
               type='text'
               name='answer'
+              placeholder='Answer:'
               value={this.state.card.answer}
-              onChange={this.handleChange}
             />
-          </label>
-          <label>
-            Category: (optional)
             <input
               type='text'
               name='category'
+              placeholder='Category:'
               value={this.state.card.category}
-              onChange={this.handleChange}
             />
-          </label>
           <button type="submit">
-            Add Todo
+            Add question
           </button>
+          </fieldset>
         </form>
       </div>
     )

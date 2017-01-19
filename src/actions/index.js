@@ -1,6 +1,6 @@
 export const NEXT_CARD = 'NEXT_CARD';
 export const ADD_CARD  = 'ADD_CARD';
-let nextQuestionId = 0;
+let nextQuestionId = 1;
 
 export const addCard = (card) => {
   return {

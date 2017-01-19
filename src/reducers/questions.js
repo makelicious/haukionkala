@@ -17,7 +17,7 @@ const card = (state = {}, action) => {
       return state
   }
 }
-const cards = (state = [], action) => {
+const cards = (state = [{question: 'mitä kuuluu?', answer: 'hyvää', id: 0, category: 'ebin'}], action) => {
   switch (action.type) {
     case ADD_CARD:
       return [

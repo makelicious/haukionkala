@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { IndexLink } from 'react-router';
 
 function Header () {
     return (
-      <div className='header'>
-        <ul>
-          <li><Link to='/categories'>Categories</Link></li>
-          <li><Link to='/add'>Add questions</Link></li>
-          <li><Link to='/study'>Study</Link></li>
-        </ul>
-      </div>
+      <header className='header'>
+        <nav className='navigation'>
+          <IndexLink activeClassName='active' to='/categories'>Categories</IndexLink>
+          <IndexLink activeClassName='active' to='/add'>Add&nbsp;questions</IndexLink>
+          <IndexLink activeClassName='active' to='/study'>Study</IndexLink>
+        </nav>
+      </header>
   );
 }
 

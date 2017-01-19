@@ -29,6 +29,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+
 const currentCard = connect(
   mapStateToProps,
   mapDispatchToProps
