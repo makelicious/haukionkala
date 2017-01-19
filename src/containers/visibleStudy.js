@@ -15,16 +15,16 @@ const getCurrentCard = (cards, current, action) => {
 
 const mapStateToProps = (state) => {
   console.log(state);
-  console.log(state.cards[0]);
   return {
-    cards: getCurrentCard(state.cards, state.current)
+    cards: getCurrentCard(state.cards, state.current),
+    amountOfCards: state.cards.length
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: () => {
-      dispatch(next())
+    onClick: (id, length) => {
+      dispatch(next(id, length))
     }
   }
 }

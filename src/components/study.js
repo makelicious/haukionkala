@@ -22,7 +22,7 @@ class Study extends React.Component {
     return(
       <div onClick={this.handleClick}>
         {view}
-        <span onClick={this.props.onClick}>Next</span>
+        <span onClick={() =>{this.props.onClick(this.props.cards, this.props.amountOfCards)}}>Next</span>
       </div>
     )
   }
