@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux'
-import cards from './questions'
-import current from './current'
+import { combineReducers } from 'redux';
+import cards from './questions';
+import currentId from './current';
 
 
 const qaApp = combineReducers({
   cards,
-  current
+  currentId
 })
 
-export default qaApp
+export default qaApp;

@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
-import QAList from '../components/qaList'
+import { connect } from 'react-redux';
+import QAList from '../components/qaList';
 
 const getAllCards = (cards, action) => {
   switch (action) {
@@ -11,10 +11,9 @@ const getAllCards = (cards, action) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     cards: getAllCards(state.cards)
-  }
+  };
 }
 
 const allCards = connect(
@@ -22,4 +21,4 @@ const allCards = connect(
 )(QAList)
 
 
-export default allCards
+export default allCards;

@@ -12,21 +12,23 @@ const card = (state = {}, action) => {
         id: action.id,
         question: action.question,
         answer: action.answer
-      }
+      };
     default:
-      return state
+      return state;
   }
 }
+
+
 const cards = (state = [{question: 'mitä kuuluu?', answer: 'hyvää', id: 0, category: 'ebin'}], action) => {
   switch (action.type) {
     case ADD_CARD:
       return [
         ...state,
         card(undefined, action)
-      ]
+      ];
     default:
-      return state
+      return state;
   }
 }
 
-export default cards
+export default cards;

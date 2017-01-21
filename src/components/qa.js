@@ -19,4 +19,4 @@ QA.propTypes = {
   answer: PropTypes.string.isRequired
 }
 
-export default QA
+export default QA;

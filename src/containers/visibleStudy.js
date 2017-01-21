@@ -1,39 +1,31 @@
-import { connect } from 'react-redux'
-import { next } from '../actions/index'
-import Study from '../components/study'
+import { connect } from 'react-redux';
+import { nextCard } from '../actions/index';
+import Study from '../components/study';
 
-const getCurrentCard = (cards, current, action) => {
-  switch (action) {
-    case 'SHOW_ALL':
-      return cards
-      default:
-      return cards[current]
-  }
+const currentCard = (cards, id) => {
+  return cards[id];
 }
 
-
-
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    cards: getCurrentCard(state.cards, state.current),
+    card: currentCard(state.cards, state.currentId),
     amountOfCards: state.cards.length
-  }
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: (id, length) => {
-      dispatch(next(id, length))
+    onClick: (currentId, cardsAmount) => {
+      dispatch(nextCard(currentId, cardsAmount))
     }
-  }
+  };
 }
 
 
-const currentCard = connect(
+const currentCardView = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Study)
 
 
-export default currentCard
+export default currentCardView;

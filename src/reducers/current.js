@@ -1,12 +1,12 @@
-const current = (state = 0, action) => {
+const currentId = (state = 0, action) => {
   console.log(state);
   switch(action.type) {
     case 'NEXT_CARD':
-    return action.id
+    return action.id;
   default:
-  return state
+  return state;
   }
 }
 
 
-export default current;
+export default currentId;

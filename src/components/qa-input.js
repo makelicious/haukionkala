@@ -47,7 +47,7 @@ class QAForm extends React.Component {
 
     return (
       <div className='form-container'>
-        <h2><span className="fontawesome-pencil-square"></span>Submit a new question</h2>
+        <h2>Submit a new question</h2>
         <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <fieldset>
             <input
@@ -74,7 +74,7 @@ class QAForm extends React.Component {
           </fieldset>
         </form>
       </div>
-    )
+    );
   }
 }
 

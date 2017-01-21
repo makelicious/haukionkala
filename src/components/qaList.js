@@ -3,13 +3,13 @@ import QA from './qa';
 
 const QAList = ({ cards }) => (
   <ul>
-    {cards.map(question =>
+    {cards.map(card =>
       <QA
-        key={question.id}
-        {...question}
+        key={card.id}
+        {...card}
       />
     )}
   </ul>
 )
 
-export default QAList
+export default QAList;

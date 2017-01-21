@@ -53,6 +53,7 @@ body,
 }
 .form-container h2 {
   background: #f95252;
+  border: 1px solid #2B3A42;
   border-radius: 20px 20px 0 0;
   color: #fff;
   padding: 20px 20px;
@@ -62,7 +63,7 @@ body,
 fieldset {
   background-color: #fff;
   border-radius: 0 0 20px 20px;
-  border: 1px solid #2B3A42;
+  border: 0.5px solid #2B3A42;
 }
 
 input {
@@ -93,7 +94,7 @@ button {
   padding: 0.5em 4em;
   margin-bottom: 0.75em;
   border-radius: 15px;
-  border: 1px solid #000;
+  border: 0.1px solid #000;
   background-color: #2B3A42;
   box-shadow: 0;
   background: linear-gradient(#2B3A42, #3F5765);
