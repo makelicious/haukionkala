@@ -69,7 +69,7 @@ class QAForm extends React.Component {
               value={this.state.card.category}
             />
           <button type="submit">
-            Add question
+            <span>submit</span>
           </button>
           </fieldset>
         </form>

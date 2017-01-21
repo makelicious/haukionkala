@@ -7,6 +7,7 @@ const currentCard = (cards, id) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     card: currentCard(state.cards, state.currentId),
     amountOfCards: state.cards.length

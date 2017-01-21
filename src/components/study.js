@@ -29,8 +29,11 @@ class Study extends React.Component {
 
     return (
       <div onClick={this.handleClick} className='card-container'>
-      <p>Card {this.props.card.id + 1} / {this.props.amountOfCards}</p>
-        {view}
+        <h2 className='cardInfo'>Card {this.props.card.id + 1} / {this.props.amountOfCards}</h2>
+        <div className='card'>
+          {view}
+          <span className="font-awesome-caret-square-o-down"></span>
+        </div>
         <span className="fontawesome-arrow-right" onClick={() =>{this.props.onClick(this.props.card, this.props.amountOfCards)}}></span>
       </div>
     )
