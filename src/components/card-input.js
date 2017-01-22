@@ -83,7 +83,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCard: (id) => dispatch(addCard(id))
+    addCard: (card) => dispatch(addCard(card))
   };
 }
 

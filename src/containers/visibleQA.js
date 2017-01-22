@@ -11,8 +11,11 @@ const getAllCards = (cards, action) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    cards: getAllCards(state.cards)
+    cards: getAllCards(state.cards),
+    categories: state.categories,
+    nextIdToCategory: state.nextIdToCategory
   };
 }
 

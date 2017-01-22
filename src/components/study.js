@@ -8,7 +8,6 @@ class Study extends React.Component {
 
 
   render() {
-    console.log(this.props.showAnswer);
     let view = this.props.showAnswer ?
       <div>
         <p>Answer</p>

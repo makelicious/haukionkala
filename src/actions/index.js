@@ -1,15 +1,26 @@
 export const NEXT_CARD = 'NEXT_CARD';
 export const ADD_CARD  = 'ADD_CARD';
+export const ADD_CATEGORY = 'ADD_CATEGORY';
 
 export const addCard = (card) => {
   return (dispatch, getState) => {
-    const { nextIdToCard } = getState();
+    const { nextIdToCard, categories, nextIdToCategory } = getState();
     dispatch({
       type: ADD_CARD,
       id: nextIdToCard + 1,
       question: card.question,
-      answer: card.answer
+      answer: card.answer,
+      category: card.category
     })
+
+    const duplicates = checkForDuplicates(categories, card.category);
+    if(duplicates.length === 0) {
+      dispatch({
+        type: ADD_CATEGORY,
+        id: nextIdToCategory + 1,
+        name: card.category
+      });
+    }
   };
 }
 
@@ -30,4 +41,8 @@ export const  toggleCard = (bool) => {
     type: 'TOGGLE_CARD',
     toggle: !bool
 }
+}
+
+function checkForDuplicates(categories, categoryToAdd) {
+  return categories.filter(category => category.name === categoryToAdd);
 }
