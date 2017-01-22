@@ -7,7 +7,6 @@ const currentCard = (cards, id) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     card: currentCard(state.cards, state.currentId),
     amountOfCards: state.cards.length
@@ -16,8 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: (currentId, cardsAmount) => {
-      dispatch(nextCard(currentId, cardsAmount))
+    onClick: () => {
+      dispatch(nextCard())
     }
   };
 }

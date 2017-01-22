@@ -34,7 +34,7 @@ class Study extends React.Component {
           {view}
           <span className="font-awesome-caret-square-o-down"></span>
         </div>
-        <span className="fontawesome-arrow-right" onClick={() =>{this.props.onClick(this.props.card, this.props.amountOfCards)}}></span>
+        <span className="fontawesome-arrow-right" onClick={() =>{this.props.onClick()}}></span>
       </div>
     )
   }

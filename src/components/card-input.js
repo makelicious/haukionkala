@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { addCard } from '../actions/index';
 
 
-class QAForm extends React.Component {
+class CardInput extends React.Component {
   constructor() {
+
     super();
     this.state = {
       card: {
         question: '',
         answer: '',
-        category: ''
-
+        category: '',
       }
     };
 
@@ -21,12 +21,9 @@ class QAForm extends React.Component {
 
 
   handleSubmit(event) {
-    const { dispatch } = this.props;
-    console.log(event.target.value);
-    console.log(this.props);
     event.preventDefault();
 
-    dispatch(addCard(this.state.card));
+    this.props.addCard(this.state.card);
     this.setState({
       card: Object.assign({}, this.state.card, {
         question: '',
@@ -69,7 +66,7 @@ class QAForm extends React.Component {
               value={this.state.card.category}
             />
           <button type="submit">
-            <span>submit</span>
+            <span>Submit</span>
           </button>
           </fieldset>
         </form>
@@ -78,6 +75,18 @@ class QAForm extends React.Component {
   }
 }
 
-QAForm = connect()(QAForm)
+const mapStateToProps = (state) => {
+  return {
+    nextIdToCard: state.nextIdToCard
+  }
+}
 
-export default QAForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addCard: (id) => dispatch(addCard(id))
+  };
+}
+
+CardInput = connect(mapStateToProps, mapDispatchToProps)(CardInput)
+
+export default CardInput;

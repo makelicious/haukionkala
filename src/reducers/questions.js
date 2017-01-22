@@ -8,6 +8,7 @@ import {
 const card = (state = {}, action) => {
   switch (action.type) {
     case ADD_CARD:
+    console.log("hereil?!?!");
       return {
         id: action.id,
         question: action.question,
