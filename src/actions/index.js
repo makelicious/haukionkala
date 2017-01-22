@@ -13,7 +13,6 @@ export const addCard = (card) => {
   };
 }
 
-
 export const nextCard = () => {
 
   return (dispatch, getState) => {
@@ -24,4 +23,11 @@ export const nextCard = () => {
       id: nextCardId
     })
   }
+}
+
+export const  toggleCard = (bool) => {
+  return {
+    type: 'TOGGLE_CARD',
+    toggle: !bool
+}
 }

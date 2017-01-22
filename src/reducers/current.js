@@ -17,3 +17,14 @@ export const currentId = (state = 0, action) => {
       return state;
   }
 }
+
+export const showAnswer = (state = false, action) => {
+  switch(action.type) {
+    case 'NEXT_CARD':
+      return false;
+    case 'TOGGLE_CARD':
+      return action.toggle
+    default:
+      return state;
+    }
+  }

@@ -3,20 +3,13 @@ import React from 'react';
 class Study extends React.Component {
   constructor() {
     super();
-    this.state = {
-      showAnswer: false
-    }
-    this.handleClick = this.handleClick.bind(this);
+
   }
 
-  handleClick() {
-    this.setState({
-      showAnswer: !this.state.showAnswer
-    })
-  }
+
   render() {
-    console.log(this.props);
-    let view = this.state.showAnswer ?
+    console.log(this.props.showAnswer);
+    let view = this.props.showAnswer ?
       <div>
         <p>Answer</p>
         <span>{this.props.card.answer}</span>
@@ -28,9 +21,9 @@ class Study extends React.Component {
       </div>;
 
     return (
-      <div onClick={this.handleClick} className='card-container'>
+      <div className='card-container'>
         <h2 className='cardInfo'>Card {this.props.card.id + 1} / {this.props.amountOfCards}</h2>
-        <div className='card'>
+        <div className='card' onClick={() => {this.props.toggle(this.props.showAnswer)}}>
           {view}
           <span className="font-awesome-caret-square-o-down"></span>
         </div>

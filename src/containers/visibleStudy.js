@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { nextCard } from '../actions/index';
+import { nextCard, toggleCard } from '../actions/index';
 import Study from '../components/study';
 
 const currentCard = (cards, id) => {
@@ -9,7 +9,8 @@ const currentCard = (cards, id) => {
 const mapStateToProps = (state) => {
   return {
     card: currentCard(state.cards, state.currentId),
-    amountOfCards: state.cards.length
+    amountOfCards: state.cards.length,
+    showAnswer: state.showAnswer
   };
 }
 
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onClick: () => {
       dispatch(nextCard())
+    },
+    toggle: (bool) => {
+      dispatch(toggleCard(bool))
     }
   };
 }
