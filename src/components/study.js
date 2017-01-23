@@ -20,8 +20,8 @@ class Study extends React.Component {
       </div>;
 
     return (
-      <div className='card-container'>
-        <h2 className='cardInfo'>Card {this.props.card.id + 1} / {this.props.amountOfCards}</h2>
+      <div className='container'>
+        <h2 className='container__title'>Card {this.props.card.id + 1} / {this.props.amountOfCards}</h2>
         <div className='card' onClick={() => {this.props.toggle(this.props.showAnswer)}}>
           {view}
           <span className="font-awesome-caret-square-o-down"></span>

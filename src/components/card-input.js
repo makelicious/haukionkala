@@ -43,32 +43,40 @@ class CardInput extends React.Component {
   render() {
 
     return (
-      <div className='form-container'>
-        <h2>Submit a new question</h2>
-        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-          <fieldset>
-            <input
-              type='text'
-              name='question'
-              placeholder='Question:'
-              value={this.state.card.question}
-            />
-            <input
-              type='text'
-              name='answer'
-              placeholder='Answer:'
-              value={this.state.card.answer}
-            />
-            <input
-              type='text'
-              name='category'
-              placeholder='Category:'
-              value={this.state.card.category}
-            />
-          <button type="submit">
-            <span>Submit</span>
+      <div className='container'>
+        <h2 className='container__title'>Submit a new question</h2>
+        <form
+          className='card-form'
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+        >
+          <input
+            className='card-form__input'
+            type='text'
+            name='question'
+            placeholder='Question:'
+            value={this.state.card.question}
+          />
+          <input
+            className='card-form__input'
+            type='text'
+            name='answer'
+            placeholder='Answer:'
+            value={this.state.card.answer}
+          />
+          <input
+            className='card-form__input'
+            type='text'
+            name='category'
+            placeholder='Category:'
+            value={this.state.card.category}
+          />
+          <button
+            className='card-form__button'
+            type='submit'
+          >
+            Submit
           </button>
-          </fieldset>
         </form>
       </div>
     );

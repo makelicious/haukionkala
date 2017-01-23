@@ -5,9 +5,9 @@ function Header () {
     return (
       <header className='header'>
         <nav className='navigation'>
-          <IndexLink activeClassName='active' to='/categories'>Categories</IndexLink>
-          <IndexLink activeClassName='active' to='/add'>Add&nbsp;questions</IndexLink>
-          <IndexLink activeClassName='active' to='/study'>Study</IndexLink>
+          <IndexLink className='navigation__link' activeClassName="navigation__link_active" to='/categories'>Categories</IndexLink>
+          <IndexLink className='navigation__link' activeClassName="navigation__link_active" to='/add'>Add&nbsp;questions</IndexLink>
+          <IndexLink className='navigation__link' activeClassName="navigation__link_active" to='/study'>Study</IndexLink>
         </nav>
       </header>
   );
