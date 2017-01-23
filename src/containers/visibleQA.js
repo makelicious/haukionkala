@@ -1,27 +1,29 @@
 import { connect } from 'react-redux';
-import QAList from '../components/qaList';
+import Categories from '../components/categories';
+import { filterByCategory } from '../actions/index';
 
-const getAllCards = (cards, action) => {
-  switch (action) {
-    case 'SHOW_ALL':
-      return cards
-      default:
-        return cards
-  }
-}
 
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    cards: getAllCards(state.cards),
+    cards: state.currentlyVisibleCategory.cards,
     categories: state.categories,
     nextIdToCategory: state.nextIdToCategory
   };
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCategoryClick: (category) => {
+      dispatch(filterByCategory(category))
+    }
+  }
+}
+
 const allCards = connect(
-  mapStateToProps
-)(QAList)
+  mapStateToProps,
+  mapDispatchToProps
+)(Categories)
 
 
 export default allCards;

@@ -14,6 +14,7 @@ export const addCard = (card) => {
     })
 
     const duplicates = checkForDuplicates(categories, card.category);
+
     if(duplicates.length === 0) {
       dispatch({
         type: ADD_CATEGORY,
@@ -42,6 +43,37 @@ export const  toggleCard = (bool) => {
     toggle: !bool
 }
 }
+
+
+export const filterByCategory = (category) => {
+  return (dispatch, getState) => {
+    const { cards, currentlyVisibleCategory } = getState();
+    console.log(currentlyVisibleCategory);
+    const filteredCards = filterCardsByCategory(cards, category);
+    console.log(filteredCards);
+
+    if(category === currentlyVisibleCategory.category) {
+      dispatch({
+        type: 'SHOW_NONE',
+        cards: [],
+        category: ''
+      })
+    }
+
+    else {
+    dispatch({
+      type: 'FILTER_BY_CATEGORY',
+      cards: filteredCards,
+      category: category
+    })
+  }
+  }
+}
+
+function filterCardsByCategory(cards, filter) {
+  return cards.filter(card => card.category === filter)
+}
+
 
 function checkForDuplicates(categories, categoryToAdd) {
   return categories.filter(category => category.name === categoryToAdd);

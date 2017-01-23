@@ -12,7 +12,7 @@ export const currentId = (state = 0, action) => {
   switch(action.type) {
     case 'ADD_CARD':
       return action.id;
-
+      
     default:
       return state;
   }
