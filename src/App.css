@@ -128,4 +128,53 @@ body,
 
 .card {
   background-color: #fff;
+  border: 1px solid #CBC9CF;
+}
+
+.card__question {
+  border-bottom: 1px solid #CBC9CF;
+  padding-bottom: 1em;
+}
+
+.card__question__text {
+  font-style:italic;
+}
+
+.card__answer {
+  padding-bottom: 1em;
+}
+
+
+/*Categories*/
+
+.categories {
+  background-color: #fff;
+  border: 1px solid #CBC9CF;
+
+}
+
+.categories__list {
+  list-style: none;
+}
+
+.questions {
+
+
+}
+
+.questions__list {
+  list-style: none;
+}
+
+.questions__list__item {
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #CBC9CF;
+  background-color: #fff;
+}
+
+.questions__list__item:nth-child(even){
+	border-bottom: 0;
+  border-top: 0;
+  background-color: #D9D9D9;
 }

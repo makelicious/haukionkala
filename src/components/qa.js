@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
 const QA = ({question, answer}) => (
-  <li>
-    <span>{question}</span>
-    <span>{answer}</span>
+  <li className='questions__list__item'>
+    <p className='list__item__question'>Question: {question}</p>
+    <p className='list__item__answer'>Answer: {answer}</p>
   </li>
 )
 
