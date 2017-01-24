@@ -176,5 +176,5 @@ body,
 .questions__list__item:nth-child(even){
 	border-bottom: 0;
   border-top: 0;
-  background-color: #D9D9D9;
+  background-color: #BDD4DE;
 }
