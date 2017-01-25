@@ -26,10 +26,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-const currentCardView = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Study)
-
-
-export default currentCardView;

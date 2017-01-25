@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 
-const QA = ({question, answer}) => (
-  <li className='questions__list__item'>
-    <p className='list__item__question'>Question: {question}</p>
-    <p className='list__item__answer'>Answer: {answer}</p>
-  </li>
-)
-
+function QA (props) {
+  return (
+    <li className='questions__list__item'>
+      <p className='list__item__question'>Question: {props.question}</p>
+      <p className='list__item__answer'>Answer: {props.answer}</p>
+    </li>
+  )
+}
 
 
 

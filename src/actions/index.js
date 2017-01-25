@@ -26,7 +26,6 @@ export const addCard = (card) => {
 }
 
 export const nextCard = () => {
-
   return (dispatch, getState) => {
     const {currentId, cards} = getState();
     const nextCardId = currentId === cards.length -1 ? 0 : currentId + 1;
@@ -34,23 +33,21 @@ export const nextCard = () => {
       type: NEXT_CARD,
       id: nextCardId
     })
-  }
+  };
 }
 
 export const  toggleCard = (bool) => {
   return {
     type: 'TOGGLE_CARD',
     toggle: !bool
-}
+  }
 }
 
 
 export const filterByCategory = (category) => {
   return (dispatch, getState) => {
     const { cards, currentlyVisibleCategory } = getState();
-    console.log(currentlyVisibleCategory);
     const filteredCards = filterCardsByCategory(cards, category);
-    console.log(filteredCards);
 
     if(category === currentlyVisibleCategory.category) {
       dispatch({

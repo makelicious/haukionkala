@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addCard } from '../actions/index';
 
 
-class CardInput extends React.Component {
+export class CardInput extends React.Component {
   constructor() {
 
     super();
@@ -27,9 +27,9 @@ class CardInput extends React.Component {
     this.setState({
       card: Object.assign({}, this.state.card, {
         question: '',
-        answer: '',
+        answer: ''
       })
-    })
+    });
   }
 
   handleChange(event) {
@@ -37,18 +37,17 @@ class CardInput extends React.Component {
       card: Object.assign({}, this.state.card, {
         [event.target.name]: event.target.value
       })
-    })
+    });
   }
 
   render() {
-
     return (
       <div className='container'>
         <h2 className='container__title'>Submit a new question</h2>
         <form
           className='card-form'
-          onSubmit={this.handleSubmit}
           onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
         >
           <input
             className='card-form__input'
@@ -95,6 +94,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-CardInput = connect(mapStateToProps, mapDispatchToProps)(CardInput)
-
-export default CardInput;
+export default connect(mapStateToProps, mapDispatchToProps)(CardInput)

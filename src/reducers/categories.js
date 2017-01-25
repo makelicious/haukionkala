@@ -1,7 +1,7 @@
 import { ADD_CATEGORY } from '../actions/index';
 
 
-const category = (state = {}, action) => {
+export const category = (state = {}, action) => {
   switch(action.type) {
     case ADD_CATEGORY:
       return {
@@ -13,7 +13,8 @@ const category = (state = {}, action) => {
   }
 }
 
-export const categories = (state = [{id: -1, name: 'ebin'}], action) => {
+export const categories = (state = [{id: 0, name: 'ebin'}], action) => {
+  console.log(state);
   switch(action.type) {
     case ADD_CATEGORY:
       return [
