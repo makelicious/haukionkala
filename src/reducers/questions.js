@@ -2,6 +2,20 @@ import {
   ADD_CARD,
 } from '../actions/index';
 
+const initialState = [
+  {
+    question: 'mitä kuuluu?',
+    answer: 'hyvää',
+    id: 0,
+    category: 'ebin',
+  },
+  {
+    question: 'wadap?',
+    answer: 'all good in da hood',
+    id: 1,
+    category: 'jebin'
+  }
+];
 
 
 
@@ -20,7 +34,7 @@ const card = (state = {}, action) => {
 }
 
 
-const cards = (state = [{question: 'mitä kuuluu?', answer: 'hyvää', id: 0, category: 'ebin'}], action) => {
+const cards = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CARD:
       return [

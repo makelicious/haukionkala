@@ -40,7 +40,7 @@ export const  toggleCard = (bool) => {
   return {
     type: 'TOGGLE_CARD',
     toggle: !bool
-  }
+  };
 }
 
 

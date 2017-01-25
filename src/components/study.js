@@ -21,7 +21,7 @@ class Study extends React.Component {
           {answer}
           <span className="fontawesome-caret-square-o-down"></span>
         </div>
-        <span className="fontawesome-arrow-right" onClick={() =>{this.props.onClick()}}></span>
+        <span className="fontawesome-arrow-right" onClick={this.props.onClick}></span>
       </div>
     )
   }
