@@ -144,6 +144,13 @@ body,
   padding-bottom: 1em;
 }
 
+.fontawesome-arrow-left {
+  float: left;
+}
+.fontawesome-arrow-right {
+  float: right;
+}
+
 
 /*Categories*/
 

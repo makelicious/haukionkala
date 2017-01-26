@@ -1,6 +1,8 @@
 export const NEXT_CARD = 'NEXT_CARD';
 export const ADD_CARD  = 'ADD_CARD';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const CATEGORY_SELECTED = 'CATEGORY_SELECTED';
+export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 
 export const addCard = (card) => {
   return (dispatch, getState) => {
@@ -27,8 +29,8 @@ export const addCard = (card) => {
 
 export const nextCard = () => {
   return (dispatch, getState) => {
-    const {currentId, cards} = getState();
-    const nextCardId = currentId === cards.length -1 ? 0 : currentId + 1;
+    const {currentId, categorySelected} = getState();
+    const nextCardId = currentId === categorySelected.cards.length -1 ? 0 : currentId + 1;
     dispatch({
       type: NEXT_CARD,
       id: nextCardId
@@ -36,11 +38,52 @@ export const nextCard = () => {
   };
 }
 
+
+export const prevCard = () => {
+  return (dispatch, getState) => {
+    const { currentId, categorySelected } = getState();
+    const nextCardId = currentId === 0 ? categorySelected.cards.length -1 : currentId -1;
+    dispatch({
+      type: 'PREV_CARD',
+      id: nextCardId
+    })
+  }
+}
+
 export const  toggleCard = (bool) => {
   return {
     type: 'TOGGLE_CARD',
     toggle: !bool
   };
+}
+
+export const selectCategory = () => {
+  return (dispatch, getState) => {
+    const { categorySelected } = getState();
+    if(categorySelected) {
+      dispatch({
+        type: '',
+        cards: '',
+        category: ''
+      })
+    }
+  }
+
+}
+
+export const categorySelected = (bool, name) => {
+  console.log(bool);
+  return (dispatch, getState) => {
+    const { cards } = getState();
+    const filteredCards = filterCardsByCategory(cards, name);
+
+    dispatch({
+      type: CATEGORY_SELECTED,
+      visible: !bool,
+      cards: filteredCards,
+      category: name
+    });
+  }
 }
 
 

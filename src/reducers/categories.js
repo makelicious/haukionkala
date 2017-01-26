@@ -1,4 +1,4 @@
-import { ADD_CATEGORY } from '../actions/index';
+import { ADD_CATEGORY, CATEGORY_SELECTED } from '../actions/index';
 
 
 export const category = (state = {}, action) => {
@@ -32,5 +32,18 @@ export const nextIdToCategory = (state = 0, action) => {
       return action.id;
     default:
       return state;
+  }
+}
+
+export const categorySelected = (state = {visible: false, cards: [], category: null}, action) => {
+  switch(action.type) {
+    case CATEGORY_SELECTED:
+      return {
+        visible: action.visible,
+        cards: action.cards,
+        category: action.category
+      }
+    default:
+      return state
   }
 }
