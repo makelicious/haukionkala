@@ -25,25 +25,33 @@ body,
 /* header & navigation */
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items:center;
   margin-bottom: 40px;
-  height: 60px;
+  height: 70px;
 
   font-family: "Roboto", serif;
   background: #107896;
 }
 
+/*852 x 380*/
+.logo-container {
+background: url('kala2.png');
+height: 40px;
+width: 90px;
+margin-left: 1em;
+}
+
 .navigation {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 40%;
+  margin-left: 1em;
 }
 
 
 .navigation__link {
   display:inline-block;
   padding-bottom: 2px;
+  margin-left: 1em;
+
 
   color: #fff;
   text-decoration: none;
@@ -71,21 +79,21 @@ body,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-content: flex-start;
   width: 600px;
 }
 
 .container__title {
   display: flex;
   align-content: flex-start;
-
-  padding: 1em 1em;
-  border-color: #CBC9CF;
+  padding-top: 1em;
+  padding-bottom: 1em;
 
   font-family: "Roboto", serif;
   font-weight: 600;
   color: #2b2b2b;
-  border-radius: 2px;
 }
+
 
 
 /* form */
@@ -93,15 +101,16 @@ body,
 .card-form {
   padding-top: 3em;
   padding-bottom: 1em;
+  margin-bottom: 1em;
 
   background-color: #fff;
 }
 
 .card-form__input {
-  color: #333333;
-  border: 1px solid #333333;
+  color: #2b2b2b;
+  border: 1px solid #2b2b2b;
   width: 80%;
-  padding: 0.5em 0.25em;
+  padding: 0.4em 0.25em;
   margin-bottom: 1em;
   font-size: 1.5em;
   border-radius: 4px;
@@ -121,18 +130,18 @@ body,
 
 .card-form__button {
   padding: 0.5em 4em;
-  margin-bottom: 0.75em;
+  margin-bottom: 1em;
+  margin-top: 1em;
 
   border-radius: 2px;
   border: 1px;
   background-color: #f58b47;
-  background-color: #F26d21;
   font-size: 1.25em;
   color: #fff;
 }
 
 .card-form__button:hover {
-  background-color: #da621e;
+  background-color: #F26d21;
 }
 
 /*Study*/
@@ -166,30 +175,35 @@ body,
 /*Categories*/
 
 .categories {
-
-
   background-color: #fff;
   border: 1px solid #CBC9CF;
-
 }
 
 .categories__list {
   list-style: none;
+  padding-left: 0;
+  padding-right: 2em;
+  margin: 0 0 0 0em;
+
 }
 
 .categories__list__item {
   border-bottom: 1px solid #CBC9CF;
   padding-top: 1em;
+  padding-left: 2em;
+  width: 100%;
+
 }
 
-.categories__list__item a {
-  color: #000;
-  text-decoration: none;
+/*.categories__list__item:nth-child(odd){
+  background-color: #BDD4DE;
+}*/
+
+.categories__list__item:hover {
+  background-color: #BDD4DE;
+
 }
 
-.categories__list__item a:active {
-  background-color: #000;
-}
 
 .questions {
 

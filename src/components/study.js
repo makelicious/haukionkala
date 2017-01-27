@@ -25,8 +25,6 @@ class Study extends React.Component {
             <span className='card__question__text'>{this.props.categorySelected.cards[this.props.currentId].question}</span>
           </div>
           {answer}
-          <span className="fontawesome-arrow-left" onClick={this.props.onPrevClick}></span>
-          <span className="fontawesome-arrow-right" onClick={this.props.onNextClick}></span>
         </div>
         :
         null;
@@ -41,12 +39,14 @@ class Study extends React.Component {
               className='categories__list__item'
               onClick={()=> {this.props.selectCategory(this.props.categorySelected.visible, category.name)}}
               key={category.id}>
-              {category.name}
+              <h3 className='list__item__title'>{category.name}</h3>
             </li>
             )}
           </ul>
         </div>
+        <span className="fontawesome-arrow-left" onClick={this.props.onPrevClick}></span>
         {question}
+        <span className="fontawesome-arrow-right" onClick={this.props.onNextClick}></span>
       </div>
     )
   }
