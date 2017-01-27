@@ -35,7 +35,7 @@ export class CardInput extends React.Component {
   handleChange(event) {
     this.setState({
       card: Object.assign({}, this.state.card, {
-        [event.target.name]: event.target.value
+        [event.target.id]: event.target.value
       })
     });
   }
@@ -47,33 +47,40 @@ export class CardInput extends React.Component {
         <form
           className='card-form'
           onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-        >
+          onSubmit={this.handleSubmit}>
+          <label
+            for='question'
+            className='input__label'>
+            Question
+          </label><br/>
           <input
             className='card-form__input'
             type='text'
-            name='question'
-            placeholder='Question:'
-            value={this.state.card.question}
-          />
+            id='question'
+            value={this.state.card.question}/><br/>
+          <label
+            for='answer'
+            className='input__label'>
+            Answer
+          </label><br/>
           <input
             className='card-form__input'
             type='text'
-            name='answer'
-            placeholder='Answer:'
-            value={this.state.card.answer}
-          />
+            id='answer'
+            value={this.state.card.answer}/><br/>
+          <label
+            for='category'
+            className='input__label'>
+            Category
+          </label><br/>
           <input
             className='card-form__input'
             type='text'
-            name='category'
-            placeholder='Category:'
-            value={this.state.card.category}
-          />
+            id='category'
+            value={this.state.card.category}/>
           <button
             className='card-form__button'
-            type='submit'
-          >
+            type='submit'>
             Submit
           </button>
         </form>

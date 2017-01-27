@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
-@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400);
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
 
 html,
@@ -19,7 +19,7 @@ body,
   text-align: center;
 
   font: 16px "Open Sans", sans-serif;
-  background-color: #EFEFEF;
+  background-color: #F0F0F0;
 }
 
 /* header & navigation */
@@ -30,31 +30,32 @@ body,
   height: 60px;
 
   font-family: "Roboto", serif;
-  background: linear-gradient(#2B3A42, #3F5765);
+  background: #107896;
 }
 
 .navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  width: 50%;
+  width: 40%;
 }
+
 
 .navigation__link {
   display:inline-block;
-  padding-bottom:2px;
+  padding-bottom: 2px;
 
-  color: #EFEFEF;
+  color: #fff;
   text-decoration: none;
 }
 
 .navigation__link_active {
-  color: #F95252;
+  color: #F58B4C;
 }
 
 .navigation__link:hover {
   padding-bottom: 1px;
-  border-bottom:1px solid #F95252;
+  border-bottom:1px solid #F58B4C;
 }
 
 
@@ -78,11 +79,11 @@ body,
   align-content: flex-start;
 
   padding: 1em 1em;
-  border: 1px solid #CBC9CF;
+  border-color: #CBC9CF;
 
-  font-weight: 400;
-  color: #FFF;
-  background: #F95252;
+  font-family: "Roboto", serif;
+  font-weight: 600;
+  color: #2b2b2b;
   border-radius: 2px;
 }
 
@@ -90,27 +91,32 @@ body,
 /* form */
 
 .card-form {
-  padding-top: 2em;
-  border: 1px solid #CBC9CF;
+  padding-top: 3em;
+  padding-bottom: 1em;
 
   background-color: #fff;
 }
 
 .card-form__input {
+  color: #333333;
+  border: 1px solid #333333;
   width: 80%;
-  padding: 1em 0.2em;
+  padding: 0.5em 0.25em;
   margin-bottom: 1em;
+  font-size: 1.5em;
+  border-radius: 4px;
+  background-color: #dadedf;
+  border: 0;
+  box-shadow: 0;
+}
 
-  border-radius: 2px;
-  background-color: #EFEFEF;
-  border: 1px solid #CBC9CF;
+.input__label {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 3.5em;
+
 }
-.card-form__input:first-child {
-  margin-top: 1em;
-}
-.card-form__input:last-child {
-  margin-bottom: 0;
-}
+
 
 
 .card-form__button {
@@ -118,15 +124,15 @@ body,
   margin-bottom: 0.75em;
 
   border-radius: 2px;
-  border: 1px solid #CBC9CF;
-  background-color: #2B3A42;
-  background: linear-gradient(#2B3A42, #3F5765);
+  border: 1px;
+  background-color: #f58b47;
+  background-color: #F26d21;
   font-size: 1.25em;
   color: #fff;
 }
 
 .card-form__button:hover {
-  background: #2b3A42;
+  background-color: #da621e;
 }
 
 /*Study*/

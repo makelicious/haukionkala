@@ -43,10 +43,10 @@ export const nextCard = () => {
 export const prevCard = () => {
   return (dispatch, getState) => {
     const { currentId, categorySelected } = getState();
-    const nextCardId = currentId === 0 ? categorySelected.cards.length -1 : currentId -1;
+    const prevCardId = currentId === 0 ? categorySelected.cards.length -1 : currentId -1;
     dispatch({
       type: 'PREV_CARD',
-      id: nextCardId
+      id: prevCardId
     })
   }
 }
@@ -73,7 +73,6 @@ export const selectCategory = () => {
 }
 
 export const categorySelected = (bool, name) => {
-  let lastCategoryPicked;
   return (dispatch, getState) => {
     console.log(getState());
     const { cards, categorySelected } = getState();
