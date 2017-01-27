@@ -69,11 +69,15 @@ body,
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 600px;
 }
 
 .container__title {
-  padding: 1em 2em;
+  display: flex;
+  align-content: flex-start;
+
+  padding: 1em 1em;
   border: 1px solid #CBC9CF;
 
   font-weight: 400;
@@ -86,6 +90,7 @@ body,
 /* form */
 
 .card-form {
+  padding-top: 2em;
   border: 1px solid #CBC9CF;
 
   background-color: #fff;
@@ -155,6 +160,8 @@ body,
 /*Categories*/
 
 .categories {
+
+
   background-color: #fff;
   border: 1px solid #CBC9CF;
 
@@ -162,6 +169,20 @@ body,
 
 .categories__list {
   list-style: none;
+}
+
+.categories__list__item {
+  border-bottom: 1px solid #CBC9CF;
+  padding-top: 1em;
+}
+
+.categories__list__item a {
+  color: #000;
+  text-decoration: none;
+}
+
+.categories__list__item a:active {
+  background-color: #000;
 }
 
 .questions {

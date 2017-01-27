@@ -3,6 +3,7 @@ export const ADD_CARD  = 'ADD_CARD';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
 export const CATEGORY_SELECTED = 'CATEGORY_SELECTED';
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
+export const SWITCH_CATEGORY = 'SWITCH_CATEGORY';
 
 export const addCard = (card) => {
   return (dispatch, getState) => {
@@ -72,11 +73,24 @@ export const selectCategory = () => {
 }
 
 export const categorySelected = (bool, name) => {
-  console.log(bool);
+  let lastCategoryPicked;
   return (dispatch, getState) => {
-    const { cards } = getState();
+    console.log(getState());
+    const { cards, categorySelected } = getState();
     const filteredCards = filterCardsByCategory(cards, name);
 
+    if(categorySelected.category !== name) {
+      dispatch({
+        type: SWITCH_CATEGORY,
+        id: 0
+      });
+
+      //if cards are already visible, we want still see the cards
+      //by turning our visible cards toggle around once correct dispatch is sent
+      if(bool) {
+        bool = !bool;
+      }
+    }
     dispatch({
       type: CATEGORY_SELECTED,
       visible: !bool,

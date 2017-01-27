@@ -1,9 +1,10 @@
 export const currentId = (state = 0, action) => {
-  console.log(state);
   switch(action.type) {
     case 'NEXT_CARD':
       return action.id;
     case 'PREV_CARD':
+      return action.id;
+    case 'SWITCH_CATEGORY':
       return action.id;
   default:
   return state;

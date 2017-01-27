@@ -4,7 +4,6 @@ const initialState = {
 
 
 export const currentlyVisibleCategory = (state = initialState, action) => {
-  console.log(action);
   switch(action.type) {
     case 'SHOW_NONE':
       return {

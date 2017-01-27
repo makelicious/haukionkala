@@ -14,7 +14,6 @@ export const category = (state = {}, action) => {
 }
 
 export const categories = (state = [{id: 0, name: 'ebin'}], action) => {
-  console.log(state);
   switch(action.type) {
     case ADD_CATEGORY:
       return [

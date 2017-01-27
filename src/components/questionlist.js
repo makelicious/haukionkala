@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
-function QA (props) {
+function QuestionList (props) {
+  console.log(props);
   return (
     <li className='questions__list__item'>
       <p className='list__item__question'>Question: {props.question}</p>
@@ -19,4 +20,4 @@ function QA (props) {
 //   answer: PropTypes.string.isRequired
 // }
 
-export default QA;
+export default QuestionList;

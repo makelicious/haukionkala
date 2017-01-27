@@ -4,7 +4,6 @@ import { filterByCategory } from '../actions/index';
 
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     cards: state.currentlyVisibleCategory.cards,
     categories: state.categories,
@@ -17,8 +16,8 @@ const mapDispatchToProps = (dispatch) => {
     onCategoryClick: (category) => {
       dispatch(filterByCategory(category))
     }
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,
