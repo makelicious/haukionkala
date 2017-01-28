@@ -26,7 +26,6 @@ class Study extends React.Component {
             <h3 className='card__question__title'>Question {this.props.currentId + 1} / {this.props.categorySelected.cards.length}</h3>
             <span className='card__question__text'>{this.props.categorySelected.cards[this.props.currentId].question}</span>
           </div>
-          {answer}
         </div>
         <span className='card__question__nav' onClick={this.props.onNextClick}>&gt;</span>
       </div>
@@ -35,7 +34,7 @@ class Study extends React.Component {
 
     return (
       <div className='container'>
-        <h2 className='container__title'>Studymode</h2>
+        <h2 className='container__title'>Study mode</h2>
         <div className='categories'>
           <ul className='categories__list'>
             {this.props.categories.map(category =>
@@ -49,6 +48,7 @@ class Study extends React.Component {
           </ul>
         </div>
         {question}
+        {answer}
       </div>
     )
   }

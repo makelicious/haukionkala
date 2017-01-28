@@ -170,6 +170,9 @@ margin-left: 1em;
 
 .card__answer {
   padding-bottom: 1em;
+  background-color: #fff;
+  width: 80%;
+  align-self: center;
 }
 
 .card__question__nav {
@@ -249,8 +252,9 @@ justify-content: flex-start;
 .list__item__delete {
   display: inline-block;
   float: right;
-  margin-right: 0.5em;
-  margin-top: 0.5em;
+  margin-right: 0.3em;
+  color: #000;
+  font-size: 2em;
 
 
 }
