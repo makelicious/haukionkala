@@ -4,6 +4,7 @@ import CategoryList from './categorylist';
 
 function Categories(props) {
   console.log(props.categories);
+  console.log(props.cards);
   return (
     <div className='container'>
       <h2 className='container__title'>List of categories</h2>
@@ -11,10 +12,12 @@ function Categories(props) {
       <div className='questions'>
         <ul className='questions__list'>
         {props.cards.map(card =>
-          <QuestionList
+          <li className='questions__list__item'
             key={card.id}
-            {...card}
-          />
+            onClick={() => props.onDeleteClick(card)}>
+            Question: {card.question}
+            Answer: {card.answer}
+          </li>
         )}
         </ul>
       </div>

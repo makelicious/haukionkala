@@ -58,6 +58,42 @@ export const  toggleCard = (bool) => {
   };
 }
 
+
+export const deleteCard = (card) => {
+  return (dispatch, getState) => {
+    const { cards, categories, currentlyVisibleCategory } = getState();
+    const newCards = deleteCardById(cards, card.id);
+
+    dispatch({
+      type: 'DELETE_CARD',
+      cards: newCards
+    })
+
+    const filteredCards = filterCardsByCategory(newCards, card.category);
+
+
+      //After deleting cards, if there is no cards left, delete category
+      if (filteredCards.length === 0) {
+        const newCategories = categories.filter((category) => (
+          category.name !== card.category
+        ));
+        dispatch({
+          type: 'DELETE_CATEGORY',
+          categories: newCategories
+        });
+
+        //if deleted category was the one we view, set to none
+      if(card.category === currentlyVisibleCategory.category) {
+        dispatch({
+          type: 'SHOW_NONE',
+          cards: [],
+          category: ''
+        })
+      }
+      }
+  }
+}
+
 export const selectCategory = () => {
   return (dispatch, getState) => {
     const { categorySelected } = getState();
@@ -123,11 +159,15 @@ export const filterByCategory = (category) => {
   }
 }
 
-function filterCardsByCategory(cards, filter) {
-  return cards.filter(card => card.category === filter)
+function filterCardsByCategory(cards, category) {
+  return cards.filter(card => card.category === category)
 }
 
 
 function checkForDuplicates(categories, categoryToAdd) {
   return categories.filter(category => category.name === categoryToAdd);
+}
+
+function deleteCardById(array, id) {
+  return array.filter(card => card.id !== id);
 }

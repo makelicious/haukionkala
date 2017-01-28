@@ -8,12 +8,6 @@ const initialState = [
     answer: 'hyvää',
     id: 0,
     category: 'ebin',
-  },
-  {
-    question: 'wadap?',
-    answer: 'all good in da hood',
-    id: 1,
-    category: 'jebin'
   }
 ];
 
@@ -41,6 +35,8 @@ const cards = (state = initialState, action) => {
         ...state,
         card(undefined, action)
       ];
+    case 'DELETE_CARD':
+      return action.cards;
     default:
       return state;
   }

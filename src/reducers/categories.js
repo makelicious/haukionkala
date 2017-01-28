@@ -20,6 +20,8 @@ export const categories = (state = [{id: 0, name: 'ebin'}], action) => {
         ...state,
         category(undefined, action)
       ];
+    case 'DELETE_CATEGORY':
+      return action.categories;
     default:
       return state;
   }

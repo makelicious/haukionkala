@@ -178,9 +178,6 @@ margin-left: 1em;
   width: 600px;
   background-color: #fff;
   border: 1px solid #CBC9CF;
-
-  flex-wrap: nowrap;
-
 }
 
 .categories__list {
@@ -201,7 +198,7 @@ margin-left: 1em;
 }
 
 .categories__list__item:hover {
-  background-color: #BDD4DE;
+  background-color: #43ABC9;
 
 }
 

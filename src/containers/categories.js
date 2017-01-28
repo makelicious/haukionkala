@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Categories from '../components/categories';
-import { filterByCategory } from '../actions/index';
+import { filterByCategory, deleteCard } from '../actions/index';
 
 
 const mapStateToProps = (state) => {
@@ -15,6 +15,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onCategoryClick: (category) => {
       dispatch(filterByCategory(category))
+    },
+    onDeleteClick: (id) => {
+      dispatch(deleteCard(id))
     }
   };
 };
