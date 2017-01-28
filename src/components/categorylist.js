@@ -10,7 +10,7 @@ function CategoryList(props) {
           className='categories__list__item'
           key={category.id}
           onClick={()=> {props.onCategoryClick(category.name)}}>
-          {category.name}
+          <h3>{category.name}</h3>
         </li>
         )}
       </ul>

@@ -175,38 +175,33 @@ margin-left: 1em;
 /*Categories*/
 
 .categories {
+  width: 600px;
   background-color: #fff;
   border: 1px solid #CBC9CF;
+
+  flex-wrap: nowrap;
+
 }
 
 .categories__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
   list-style: none;
-  padding-left: 0;
-  padding-right: 2em;
-  margin: 0 0 0 0em;
+  padding: 0;
+  margin: 0;
 
 }
 
 .categories__list__item {
-  border-bottom: 1px solid #CBC9CF;
-  padding-top: 1em;
-  padding-left: 2em;
-  width: 100%;
+  /*flex-grow, flew-shrink, length*/
+  flex: 1 0 25%;
 
 }
-
-/*.categories__list__item:nth-child(odd){
-  background-color: #BDD4DE;
-}*/
 
 .categories__list__item:hover {
   background-color: #BDD4DE;
-
-}
-
-
-.questions {
-
 
 }
 
