@@ -19,6 +19,8 @@ class Study extends React.Component {
 
 
       let question = this.props.categorySelected.visible ?
+      <div className='card-wrapper'>
+        <span className='card__question__nav' onClick={this.props.onPrevClick}>&lt;</span>
         <div className='card'>
           <div className='card__question' onClick={() => {this.props.toggle(this.props.showAnswer)}}>
             <h3 className='card__question__title'>Question {this.props.currentId + 1} / {this.props.categorySelected.cards.length}</h3>
@@ -26,6 +28,8 @@ class Study extends React.Component {
           </div>
           {answer}
         </div>
+        <span className='card__question__nav' onClick={this.props.onNextClick}>&gt;</span>
+      </div>
         :
         null;
 
@@ -44,9 +48,7 @@ class Study extends React.Component {
             )}
           </ul>
         </div>
-        <span className="fontawesome-arrow-left" onClick={this.props.onPrevClick}></span>
         {question}
-        <span className="fontawesome-arrow-right" onClick={this.props.onNextClick}></span>
       </div>
     )
   }

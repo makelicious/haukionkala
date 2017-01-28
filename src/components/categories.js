@@ -1,10 +1,7 @@
 import React from 'react';
-import QuestionList from './questionlist';
 import CategoryList from './categorylist';
 
 function Categories(props) {
-  console.log(props.categories);
-  console.log(props.cards);
   return (
     <div className='container'>
       <h2 className='container__title'>List of categories</h2>
@@ -13,10 +10,14 @@ function Categories(props) {
         <ul className='questions__list'>
         {props.cards.map(card =>
           <li className='questions__list__item'
-            key={card.id}
-            onClick={() => props.onDeleteClick(card)}>
-            Question: {card.question}
-            Answer: {card.answer}
+            key={card.id}>
+            <span
+              className='list__item__delete'
+              onClick={() => props.onDeleteClick(card)}>
+              &#10060;
+            </span>
+            <p className='list__item__text'>Question: {card.question}</p>
+            <p className='list__item__text'>Answer: {card.answer}</p>
           </li>
         )}
         </ul>
