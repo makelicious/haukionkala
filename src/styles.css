@@ -264,3 +264,9 @@ body,
   display: flex;
   align-items: center;
 }
+
+.front-page__link {
+  font-size: 1.5em;
+  color: #107896;
+  
+}
