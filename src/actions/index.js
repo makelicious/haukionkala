@@ -23,7 +23,6 @@ export function deleteCardById(array, id) {
 }
 
 
-
 export const addCard = (card) => {
   return (dispatch, getState) => {
     const { cards, categories } = getState();
@@ -92,7 +91,7 @@ export const deleteCard = (card) => {
     });
 
     const filteredCards = filterCardsByCategory(newCards, card.category);
-      //After deleting cards, if there is no cards left, delete category
+      //After deleting cards, if there are no cards left, delete category
     if (filteredCards.length === 0) {
       const newCategories = categories.categories.filter((category) => (
         category.name !== card.category
@@ -111,10 +110,9 @@ export const selectStudyCategory = (bool, name) => {
     const { cards } = getState();
     const filteredCards = filterCardsByCategory(cards.cards, name);
 
-      if(bool) {
-        bool = !bool;
-      }
-
+    if(bool) {
+      bool = !bool;
+    }
 
     dispatch({
       type: STUDY_CATEGORY_SELECTED,

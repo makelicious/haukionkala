@@ -4,12 +4,26 @@ import {
   deleteCardById
 } from '../actions/index';
 
+const test = 'how to, click me!';
+
 const initialState = {
   cards: [{
-    question: 'mitä kuuluu?',
-    answer: 'hyvää',
+    question: 'Click this to show answer',
+    answer: 'Click next-button on the right to reveal next question',
     id: -1,
-    category: 'ebin',
+    category: test,
+  },
+  {
+    question: 'Well done! Click me',
+    answer: 'Nice. Click question again to hide me',
+    id: -2,
+    category: test,
+  },
+  {
+    question: 'Did you know you can create your own questions?',
+    answer: 'just go to add questions page and fill em up!',
+    id: -3,
+    category: test,
   }],
   nextIdToCard: 0,
 };

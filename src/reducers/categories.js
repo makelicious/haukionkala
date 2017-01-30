@@ -3,7 +3,7 @@ import {
   DELETE_CATEGORY
  } from '../actions/index';
 const initialState = {
-  categories: [{id: 0, name: 'ebin'}],
+  categories: [{id: -1, name: 'how to, click me!'}],
   nextIdToCategory: 0,
 };
 

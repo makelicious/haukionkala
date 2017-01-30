@@ -5,6 +5,7 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
     "chai": "^3.5.0",
     "devtools": "0.0.0",
     "enzyme": "^2.7.1",

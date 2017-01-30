@@ -38,7 +38,7 @@ const studyView = (state = initialState, action) => {
       }
       return initialState;
     case NEXT_CARD:
-      return {...state, id: action.id};
+      return {...state, id: action.id, showAnswer: false};
     case PREV_CARD:
       return Object.assign({}, state, {
         id: action.id,

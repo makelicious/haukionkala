@@ -6,37 +6,35 @@ import { Provider } from 'react-redux';
 import Study from '../src/containers/study';
 import Categories from '../src/containers/categories';
 import CardInput from '../src/components/card-input';
-import store from '../src/store';
+import mockstore from '../src/mockstore';
 
 
 
 describe('<Study />', () => {
-  const wrapper = mount(<Provider store={store}><Study /></Provider>);
+  const wrapper = mount(<Provider store={mockstore}><Study /></Provider>);
   it('should toggle answer', () => {
 
-      expect(wrapper.find('.card__answer')).to.have.length(0);
-      wrapper.find('.card').simulate('click');
+      expect(wrapper.find('.card__question')).to.have.length(0);
+      wrapper.find('.categories__list__item').first().simulate('click');
+      expect(wrapper.find('.card__question')).to.have.length(1);
+      wrapper.find('.card__question').simulate('click');
       expect(wrapper.find('.card__answer')).to.have.length(1);
-      wrapper.find('.card').simulate('click');
-      expect(wrapper.find('.card__answer')).to.have.length(0);
   });
 
   it('should show next question', () => {
-    console.log(store.getState().currentId);
-    expect(store.getState().currentId).to.equal(0);
-    wrapper.find('.fontawesome-arrow-right').simulate('click');
-    expect(store.getState().currentId).to.equal(1);
-    wrapper.find('.fontawesome-arrow-right').simulate('click');
-    expect(store.getState().currentId).to.equal(0);
+    console.log(mockstore.getState());
+    expect(mockstore.getState().studyView.id).to.equal(0);
+    wrapper.find('.card__question__nav').first().simulate('click');
+    expect(mockstore.getState().studyView.id).to.not.equal(1);
   });
 });
 
 
 describe('<Categories />', () => {
-  const wrapper = mount(<Provider store={store}><Categories /></Provider>);
+  const wrapper = mount(<Provider store={mockstore}><Categories /></Provider>);
   it('should show list of questions', () => {
-    wrapper.find('.categories__list__item').simulate('click');
-    expect(wrapper.find('.questions__list__item')).to.have.length(1);
+    wrapper.find('.categories__list__item').first().simulate('click');
+    expect(wrapper.find('.questions__list__item')).to.have.length(3);
     wrapper.find('.categories__list__item').simulate('click');
     expect(wrapper.find('.questions__list__item')).to.have.length(0);
   });
@@ -44,12 +42,12 @@ describe('<Categories />', () => {
 
 describe('<CardInput />', () => {
   it('should upload question', () => {
-    const wrapper = mount(<Provider store={store}><CardInput /></Provider>);
-    expect(store.getState().nextIdToCard).to.equal(0);
-    expect(store.getState().cards).to.have.length(2);
+    const wrapper = mount(<Provider store={mockstore}><CardInput /></Provider>);
+    expect(mockstore.getState().cards.nextIdToCard).to.equal(0);
+    expect(mockstore.getState().cards.cards).to.have.length(3);
     wrapper.find('form').simulate('submit');
-    expect(store.getState().nextIdToCard).to.equal(1);
-    expect(store.getState().cards).to.have.length(3);
+    expect(mockstore.getState().cards.nextIdToCard).to.equal(1);
+    expect(mockstore.getState().cards.cards).to.have.length(4);
 
   });
 });
