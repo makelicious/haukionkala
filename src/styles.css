@@ -248,3 +248,19 @@ body,
   color: #2b2b2b;
   font-size: 2em;
 }
+
+
+/*Front page*/
+
+.front-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #107896;
+
+}
+
+.front-page__header {
+  display: flex;
+  align-items: center;
+}

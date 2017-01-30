@@ -8,6 +8,7 @@ import App from './app';
 import CardInput from './components/card-input';
 import Study from './containers/study';
 import Categories from './containers/categories';
+import frontPage from './components/frontpage';
 import store from './store';
 
 
@@ -15,9 +16,10 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={App}>
+        <Router path='/main' component={frontPage} />
         <Router path='/categories' component={Categories} />
-        <Route path='/add' component={CardInput} />
-        <Route path='/study' component={Study} />
+        <Router path='/add' component={CardInput} />
+        <Router path='/study' component={Study} />
       </Route>
     </Router>
   </Provider>,
