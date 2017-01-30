@@ -1,18 +1,14 @@
 import { combineReducers } from 'redux';
-import cards from './questions';
-import { currentlyVisibleCategory } from './filter';
-import { currentId, nextIdToCard, showAnswer } from './current';
-import { categories, nextIdToCategory, categorySelected } from './categories';
+import cards from './cards';
+import {categories} from './categories';
+import studyView from './studyView';
+import categoriesView from './categoriesView';
 
 const qaApp = combineReducers({
   cards,
-  currentId,
-  nextIdToCard,
-  showAnswer,
   categories,
-  nextIdToCategory,
-  currentlyVisibleCategory,
-  categorySelected
+  studyView,
+  categoriesView,
 });
 
 export default qaApp;

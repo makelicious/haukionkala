@@ -1,5 +1,8 @@
 import { ADD_CATEGORY, CATEGORY_SELECTED } from '../actions/index';
-
+const initialState = {
+  categories: [{id: 0, name: 'ebin'}],
+  nextIdToCategory: 0,
+};
 
 export const category = (state = {}, action) => {
   switch(action.type) {
@@ -13,38 +16,13 @@ export const category = (state = {}, action) => {
   }
 }
 
-export const categories = (state = [{id: 0, name: 'ebin'}], action) => {
+export const categories = (state = initialState, action) => {
   switch(action.type) {
     case ADD_CATEGORY:
-      return [
-        ...state,
-        category(undefined, action)
-      ];
+      return {categories: state.categories.concat(category(undefined, action)), nextIdToCategory: action.id + 1};
     case 'DELETE_CATEGORY':
-      return action.categories;
+      return {...state, categories: action.categories};
     default:
       return state;
-  }
-}
-
-export const nextIdToCategory = (state = 0, action) => {
-  switch(action.type) {
-    case ADD_CATEGORY:
-      return action.id;
-    default:
-      return state;
-  }
-}
-
-export const categorySelected = (state = {visible: false, cards: [], category: null}, action) => {
-  switch(action.type) {
-    case CATEGORY_SELECTED:
-      return {
-        visible: action.visible,
-        cards: action.cards,
-        category: action.category
-      }
-    default:
-      return state
   }
 }

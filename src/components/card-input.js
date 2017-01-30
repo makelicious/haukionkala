@@ -49,7 +49,7 @@ export class CardInput extends React.Component {
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}>
           <label
-            for='question'
+            htmlFor='question'
             className='input__label'>
             Question
           </label><br/>
@@ -59,7 +59,7 @@ export class CardInput extends React.Component {
             id='question'
             value={this.state.card.question}/><br/>
           <label
-            for='answer'
+            htmlFor='answer'
             className='input__label'>
             Answer
           </label><br/>
@@ -69,7 +69,7 @@ export class CardInput extends React.Component {
             id='answer'
             value={this.state.card.answer}/><br/>
           <label
-            for='category'
+            htmlFor='category'
             className='input__label'>
             Category
           </label><br/>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 function CategoryList(props) {
-  console.log(props);
   return (
     <div className='categories'>
       <ul className='categories__list'>

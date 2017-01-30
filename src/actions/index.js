@@ -1,27 +1,28 @@
 export const NEXT_CARD = 'NEXT_CARD';
 export const ADD_CARD  = 'ADD_CARD';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
-export const CATEGORY_SELECTED = 'CATEGORY_SELECTED';
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
-export const SWITCH_CATEGORY = 'SWITCH_CATEGORY';
 
 export const addCard = (card) => {
   return (dispatch, getState) => {
-    const { nextIdToCard, categories, nextIdToCategory } = getState();
+    const { cards, categories } = getState();
+    console.log(cards.nextIdToCard);
     dispatch({
       type: ADD_CARD,
-      id: nextIdToCard + 1,
-      question: card.question,
-      answer: card.answer,
-      category: card.category
-    })
+      card: {
+        id: cards.nextIdToCard,
+        question: card.question,
+        answer: card.answer,
+        category: card.category
+      },
+    });
 
-    const duplicates = checkForDuplicates(categories, card.category);
+    const duplicates = checkForDuplicates(categories.categories, card.category);
 
     if(duplicates.length === 0) {
       dispatch({
         type: ADD_CATEGORY,
-        id: nextIdToCategory + 1,
+        id: categories.nextIdToCategory + 1,
         name: card.category
       });
     }
@@ -30,8 +31,8 @@ export const addCard = (card) => {
 
 export const nextCard = () => {
   return (dispatch, getState) => {
-    const {currentId, categorySelected} = getState();
-    const nextCardId = currentId === categorySelected.cards.length -1 ? 0 : currentId + 1;
+    const { studyView } = getState();
+    const nextCardId = studyView.id === studyView.cards.length -1 ? 0 : studyView.id + 1;
     dispatch({
       type: NEXT_CARD,
       id: nextCardId
@@ -39,11 +40,10 @@ export const nextCard = () => {
   };
 }
 
-
 export const prevCard = () => {
   return (dispatch, getState) => {
-    const { currentId, categorySelected } = getState();
-    const prevCardId = currentId === 0 ? categorySelected.cards.length -1 : currentId -1;
+    const { studyView } = getState();
+    const prevCardId = studyView.id === 0 ? studyView.cards.length -1 : studyView.id -1;
     dispatch({
       type: 'PREV_CARD',
       id: prevCardId
@@ -54,108 +54,68 @@ export const prevCard = () => {
 export const  toggleCard = (bool) => {
   return {
     type: 'TOGGLE_CARD',
-    toggle: !bool
+    showAnswer: !bool
   };
 }
 
 
 export const deleteCard = (card) => {
   return (dispatch, getState) => {
+    console.log(card);
     const { cards, categories, currentlyVisibleCategory } = getState();
-    const newCards = deleteCardById(cards, card.id);
+    const newCards = deleteCardById(cards.cards, card.id);
 
     dispatch({
       type: 'DELETE_CARD',
-      cards: newCards
-    })
+      id: card.id
+    });
 
     const filteredCards = filterCardsByCategory(newCards, card.category);
-
-
       //After deleting cards, if there is no cards left, delete category
-      if (filteredCards.length === 0) {
-        const newCategories = categories.filter((category) => (
-          category.name !== card.category
-        ));
-        dispatch({
-          type: 'DELETE_CATEGORY',
-          categories: newCategories
-        });
-
-        //if deleted category was the one we view, set to none
-      if(card.category === currentlyVisibleCategory.category) {
-        dispatch({
-          type: 'SHOW_NONE',
-          cards: [],
-          category: ''
-        })
-      }
-      }
-  }
-}
-
-export const selectCategory = () => {
-  return (dispatch, getState) => {
-    const { categorySelected } = getState();
-    if(categorySelected) {
+    if (filteredCards.length === 0) {
+      const newCategories = categories.categories.filter((category) => (
+        category.name !== card.category
+      ));
       dispatch({
-        type: '',
-        cards: '',
-        category: ''
-      })
+        type: 'DELETE_CATEGORY',
+        categories: newCategories,
+        deletedCategory: card.category
+      });
     }
   }
-
 }
 
-export const categorySelected = (bool, name) => {
+export const selectStudyCategory = (bool, name) => {
   return (dispatch, getState) => {
-    console.log(getState());
-    const { cards, categorySelected } = getState();
-    const filteredCards = filterCardsByCategory(cards, name);
+    const {cards, studyView } = getState();
+    console.log(cards);
+    const filteredCards = filterCardsByCategory(cards.cards, name);
 
-    if(categorySelected.category !== name) {
-      dispatch({
-        type: SWITCH_CATEGORY,
-        id: 0
-      });
-
-      //if cards are already visible, we want still see the cards
-      //by turning our visible cards toggle around once correct dispatch is sent
       if(bool) {
         bool = !bool;
       }
-    }
+
+
     dispatch({
-      type: CATEGORY_SELECTED,
-      visible: !bool,
+      type: 'STUDY_CATEGORY_SELECTED',
       cards: filteredCards,
-      category: name
+      category: name,
+      showCard: !bool,
+      id: 0,
     });
-  }
-}
+  };
+};
 
-
-export const filterByCategory = (category) => {
+export const selectCategoriesCategory = (category) => {
   return (dispatch, getState) => {
-    const { cards, currentlyVisibleCategory } = getState();
-    const filteredCards = filterCardsByCategory(cards, category);
+    const { cards, categorySettings } = getState();
+    const filteredCards = filterCardsByCategory(cards.cards, category);
 
-    if(category === currentlyVisibleCategory.category) {
-      dispatch({
-        type: 'SHOW_NONE',
-        cards: [],
-        category: ''
-      })
-    }
-
-    else {
     dispatch({
-      type: 'FILTER_BY_CATEGORY',
+      type: 'CATEGORIES_CATEGORY_SELECTED',
       cards: filteredCards,
-      category: category
+      category: category,
     })
-  }
   }
 }
 
