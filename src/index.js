@@ -16,10 +16,10 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={App}>
-        <Router path='/main' component={frontPage} />
-        <Router path='/categories' component={Categories} />
-        <Router path='/add' component={CardInput} />
-        <Router path='/study' component={Study} />
+        <indexRoute path='/main' component={frontPage} />
+        <Route path='/categories' component={Categories} />
+        <Route path='/add' component={CardInput} />
+        <Route path='/study' component={Study} />
       </Route>
     </Router>
   </Provider>,
