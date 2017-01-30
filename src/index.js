@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import './index.css';
 import App from './app';
@@ -14,9 +14,9 @@ import store from './store';
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path='/' component={App}>
-        <indexRoute path='/main' component={frontPage} />
+        <IndexRoute path='/main' component={frontPage} />
         <Route path='/categories' component={Categories} />
         <Route path='/add' component={CardInput} />
         <Route path='/study' component={Study} />
