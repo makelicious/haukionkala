@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400);
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
 
 html,
 body,
@@ -11,10 +10,6 @@ body,
   margin: 0;
 }
 
-[class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
-}
-
 .App {
   text-align: center;
 
@@ -23,6 +18,7 @@ body,
 }
 
 /* header & navigation */
+
 .header {
   display: flex;
   justify-content: flex-start;
@@ -34,12 +30,11 @@ body,
   background: #107896;
 }
 
-/*852 x 380*/
 .logo-container {
-background: url('kala2.png');
-height: 40px;
-width: 90px;
-margin-left: 1em;
+  background: url('kala2.png');
+  height: 40px;
+  width: 90px;
+  margin-left: 1em;
 }
 
 .navigation {
@@ -51,8 +46,6 @@ margin-left: 1em;
   display:inline-block;
   padding-bottom: 2px;
   margin-left: 1em;
-
-
   color: #fff;
   text-decoration: none;
 }
@@ -155,12 +148,11 @@ margin-left: 1em;
 
 .card {
   background-color: #fff;
-  border: 1px solid #CBC9CF;
+  border-radius: 2px;
   width: 80%;
 }
 
 .card__question {
-  border-bottom: 1px solid #CBC9CF;
   padding-bottom: 1em;
 }
 
@@ -190,7 +182,7 @@ margin-left: 1em;
 .categories {
   width: 600px;
   background-color: #fff;
-  border: 1px solid #CBC9CF;
+  border-color: #CBC9CF;
   margin-bottom: 1em;
 }
 
@@ -213,13 +205,12 @@ margin-left: 1em;
 
 .categories__list__item:hover {
   background-color: #43ABC9;
-
 }
 
 .questions {
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .questions__list {
@@ -228,8 +219,6 @@ justify-content: flex-start;
   padding: 0;
   display: flex;
   flex-direction: column;
-
-
 }
 
 .questions__list__item {
@@ -246,15 +235,12 @@ justify-content: flex-start;
 .list__item__text {
   display: flex;
   margin-left: 1em;
-
 }
 
 .list__item__delete {
   display: inline-block;
   float: right;
   margin-right: 0.3em;
-  color: #000;
+  color: #2b2b2b;
   font-size: 2em;
-
-
 }

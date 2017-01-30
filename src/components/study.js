@@ -3,7 +3,6 @@ import React from 'react';
 class Study extends React.Component {
 
   render() {
-    console.log(this.props.categories);
     let answer = this.props.showAnswer ?
       <div className='card__answer'>
         <h3 className='card__answer__title'>Answer</h3>
@@ -11,11 +10,6 @@ class Study extends React.Component {
       </div>
       :
       null;
-
-
-
-
-
 
       let question = this.props.showCard ?
       <div className='card-wrapper'>

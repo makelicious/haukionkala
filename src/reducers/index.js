@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import cards from './cards';
-import {categories} from './categories';
+import { categories } from './categories';
 import studyView from './studyView';
 import categoriesView from './categoriesView';
 

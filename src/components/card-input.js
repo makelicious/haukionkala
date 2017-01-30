@@ -11,7 +11,7 @@ export class CardInput extends React.Component {
       card: {
         question: '',
         answer: '',
-        category: '',
+        category: ''
       }
     };
 

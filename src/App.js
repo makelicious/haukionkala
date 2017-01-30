@@ -3,7 +3,6 @@ import './styles.css';
 import Header from './components/header';
 
 const App = (props) => {
-  console.log(props.children);
   return (
     <div className="App">
       <Header />
@@ -11,7 +10,7 @@ const App = (props) => {
         {props.children}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default App;

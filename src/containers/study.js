@@ -4,7 +4,7 @@ import Study from '../components/study';
 
 const currentCard = (cards, id) => {
   return cards[id];
-}
+};
 
 const mapStateToProps = (state) => {
   const { studyView } = state;
@@ -17,27 +17,27 @@ const mapStateToProps = (state) => {
     showCard: studyView.showCard,
     currentId: studyView.id,
   };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onNextClick: () => {
-      dispatch(nextCard())
+      dispatch(nextCard());
     },
     onPrevClick: () => {
-      dispatch(prevCard())
+      dispatch(prevCard());
     },
     toggle: (bool) => {
-      dispatch(toggleCard(bool))
+      dispatch(toggleCard(bool));
     },
     selectCategory: (bool, name) => {
-      dispatch(selectStudyCategory(bool, name))
-    }
+      dispatch(selectStudyCategory(bool, name));
+    },
   };
-}
+};
 
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Study)
+  mapDispatchToProps,
+)(Study);

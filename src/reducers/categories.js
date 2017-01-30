@@ -1,4 +1,7 @@
-import { ADD_CATEGORY, CATEGORY_SELECTED } from '../actions/index';
+import {
+  ADD_CATEGORY,
+  DELETE_CATEGORY
+ } from '../actions/index';
 const initialState = {
   categories: [{id: 0, name: 'ebin'}],
   nextIdToCategory: 0,
@@ -20,7 +23,7 @@ export const categories = (state = initialState, action) => {
   switch(action.type) {
     case ADD_CATEGORY:
       return {categories: state.categories.concat(category(undefined, action)), nextIdToCategory: action.id + 1};
-    case 'DELETE_CATEGORY':
+    case DELETE_CATEGORY:
       return {...state, categories: action.categories};
     default:
       return state;

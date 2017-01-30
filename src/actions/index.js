@@ -1,7 +1,28 @@
-export const NEXT_CARD = 'NEXT_CARD';
 export const ADD_CARD  = 'ADD_CARD';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
-export const SELECT_CATEGORY = 'SELECT_CATEGORY';
+export const DELETE_CARD = 'DELETE_CARD';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';
+export const NEXT_CARD = 'NEXT_CARD';
+export const PREV_CARD = 'PREV_CARD';
+export const STUDY_CATEGORY_SELECTED = 'STUDY_CATEGORY_SELECTED';
+export const CATEGORIES_CATEGORY_SELECTED = 'CATEGORIES_CATEGORY_SELECTED';
+export const TOGGLE_CARD = 'TOGGLE_CARD';
+
+
+function filterCardsByCategory(cards, category) {
+  return cards.filter(card => card.category === category)
+}
+
+
+function checkForDuplicates(categories, categoryToAdd) {
+  return categories.filter(category => category.name === categoryToAdd);
+}
+
+export function deleteCardById(array, id) {
+  return array.filter(card => card.id !== id);
+}
+
+
 
 export const addCard = (card) => {
   return (dispatch, getState) => {
@@ -45,7 +66,7 @@ export const prevCard = () => {
     const { studyView } = getState();
     const prevCardId = studyView.id === 0 ? studyView.cards.length -1 : studyView.id -1;
     dispatch({
-      type: 'PREV_CARD',
+      type: PREV_CARD,
       id: prevCardId
     })
   }
@@ -53,7 +74,7 @@ export const prevCard = () => {
 
 export const  toggleCard = (bool) => {
   return {
-    type: 'TOGGLE_CARD',
+    type: TOGGLE_CARD,
     showAnswer: !bool
   };
 }
@@ -62,11 +83,11 @@ export const  toggleCard = (bool) => {
 export const deleteCard = (card) => {
   return (dispatch, getState) => {
     console.log(card);
-    const { cards, categories, currentlyVisibleCategory } = getState();
+    const { cards, categories } = getState();
     const newCards = deleteCardById(cards.cards, card.id);
 
     dispatch({
-      type: 'DELETE_CARD',
+      type: DELETE_CARD,
       id: card.id
     });
 
@@ -77,7 +98,7 @@ export const deleteCard = (card) => {
         category.name !== card.category
       ));
       dispatch({
-        type: 'DELETE_CATEGORY',
+        type: DELETE_CATEGORY,
         categories: newCategories,
         deletedCategory: card.category
       });
@@ -87,8 +108,7 @@ export const deleteCard = (card) => {
 
 export const selectStudyCategory = (bool, name) => {
   return (dispatch, getState) => {
-    const {cards, studyView } = getState();
-    console.log(cards);
+    const { cards } = getState();
     const filteredCards = filterCardsByCategory(cards.cards, name);
 
       if(bool) {
@@ -97,7 +117,7 @@ export const selectStudyCategory = (bool, name) => {
 
 
     dispatch({
-      type: 'STUDY_CATEGORY_SELECTED',
+      type: STUDY_CATEGORY_SELECTED,
       cards: filteredCards,
       category: name,
       showCard: !bool,
@@ -108,26 +128,13 @@ export const selectStudyCategory = (bool, name) => {
 
 export const selectCategoriesCategory = (category) => {
   return (dispatch, getState) => {
-    const { cards, categorySettings } = getState();
+    const { cards } = getState();
     const filteredCards = filterCardsByCategory(cards.cards, category);
 
     dispatch({
-      type: 'CATEGORIES_CATEGORY_SELECTED',
+      type: CATEGORIES_CATEGORY_SELECTED,
       cards: filteredCards,
       category: category,
     })
   }
-}
-
-function filterCardsByCategory(cards, category) {
-  return cards.filter(card => card.category === category)
-}
-
-
-function checkForDuplicates(categories, categoryToAdd) {
-  return categories.filter(category => category.name === categoryToAdd);
-}
-
-function deleteCardById(array, id) {
-  return array.filter(card => card.id !== id);
 }
