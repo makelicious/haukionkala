@@ -16,7 +16,7 @@ render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App}>
-        <IndexRoute path='/main' component={frontPage} />
+        <IndexRoute component={frontPage} />
         <Route path='/categories' component={Categories} />
         <Route path='/add' component={CardInput} />
         <Route path='/study' component={Study} />
