@@ -6,11 +6,11 @@ App for studying and remembering things
 ## Development
 
 ###Installation
-
-npm install <br />
-npm start <br />
+```bash
+npm install
+npm start
 open http://localhost:3000/
-
+```
 ### Testing
 
-npm test
+`npm test`
