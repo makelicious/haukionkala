@@ -32,7 +32,7 @@ class Study extends React.Component {
           <ul className='categories__list'>
             {this.props.categories.map(category =>
             <li
-              className='categories__list__item'
+              className={this.props.category === category.name ? 'categories__list__item--active' : 'categories__list__item'}
               onClick={()=> {this.props.selectCategory(this.props.showCard, category.name)}}
               key={category.id}>
               <h3 className='list__item__title'>{category.name}</h3>

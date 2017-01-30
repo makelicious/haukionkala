@@ -9,22 +9,23 @@ const mapStateToProps = (state) => {
   return {
     cards: categoriesView.cards,
     categories: state.categories.categories,
-    nextIdToCategory: state.categories.nextIdToCategory
+    nextIdToCategory: state.categories.nextIdToCategory,
+    currentCategory: categoriesView.category,
   };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onCategoryClick: (category) => {
-      dispatch(selectCategoriesCategory(category))
+      dispatch(selectCategoriesCategory(category));
     },
     onDeleteClick: (id) => {
-      dispatch(deleteCard(id))
-    }
+      dispatch(deleteCard(id));
+    },
   };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Categories)
+  mapDispatchToProps,
+)(Categories);

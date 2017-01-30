@@ -200,6 +200,10 @@ body,
 .categories__list__item {
   /*flex-grow, flew-shrink, length*/
   flex: 1 0 25%;
+}
+.categories__list__item--active {
+  flex: 1 0 25%;
+  background-color: #43ABC9;
 
 }
 

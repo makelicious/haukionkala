@@ -110,10 +110,6 @@ export const selectStudyCategory = (bool, name) => {
     const { cards } = getState();
     const filteredCards = filterCardsByCategory(cards.cards, name);
 
-    if(bool) {
-      bool = !bool;
-    }
-
     dispatch({
       type: STUDY_CATEGORY_SELECTED,
       cards: filteredCards,
@@ -128,6 +124,7 @@ export const selectCategoriesCategory = (category) => {
   return (dispatch, getState) => {
     const { cards } = getState();
     const filteredCards = filterCardsByCategory(cards.cards, category);
+
 
     dispatch({
       type: CATEGORIES_CATEGORY_SELECTED,
