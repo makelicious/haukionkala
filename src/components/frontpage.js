@@ -11,7 +11,7 @@ function frontPage() {
         <h2>Have you ever tried to remember something?</h2>
         <p>Look no further!</p>
         <p> Hauki=kala is an app which provides you a way to remember stuff, with ease</p>
-        <a href='/study'>Just jump right in!</a>
+        <a href='/study'>Jump right in!</a>
       </div>
     </div>
   )
