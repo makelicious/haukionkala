@@ -107,8 +107,13 @@ export const deleteCard = (card) => {
 
 export const selectStudyCategory = (bool, name) => {
   return (dispatch, getState) => {
-    const { cards } = getState();
+    console.log(getState());
+    const { cards, studyView } = getState();
     const filteredCards = filterCardsByCategory(cards.cards, name);
+
+    if (studyView.category !== null) {
+      bool = !bool;
+    }
 
     dispatch({
       type: STUDY_CATEGORY_SELECTED,
