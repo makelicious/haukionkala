@@ -30,8 +30,8 @@ const mapDispatchToProps = (dispatch) => {
     toggle: (bool) => {
       dispatch(toggleCard(bool));
     },
-    selectCategory: (bool, name) => {
-      dispatch(selectStudyCategory(bool, name));
+    selectCategory: (showCard, name) => {
+      dispatch(selectStudyCategory(showCard, name));
     },
   };
 };

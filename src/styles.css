@@ -31,7 +31,7 @@ body,
 }
 
 .logo-container {
-  background: url('kala2.png');
+  background: url('../src/assets/kala2.png');
   height: 40px;
   width: 90px;
   margin-left: 1em;
@@ -254,7 +254,6 @@ body,
 
 .front-page {
   display: flex;
-  align-items: center;
   flex-direction: column;
   color: #107896;
 
@@ -263,10 +262,30 @@ body,
 .front-page__header {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+
+.front-page__content {
+  margin-top: 3em;
+  background-color: #fff;
+  padding: 1em 2em;
+  border-radius: 3px;
+  text-align: left;
 }
 
 .front-page__link {
+  padding: 1em 0;
+  display: flex;
+  justify-content: center;
   font-size: 1.5em;
   color: #107896;
-  
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.front-page__link:hover {
+  color: #43ABC9;
+  font-weight: 600;
 }

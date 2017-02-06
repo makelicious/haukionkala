@@ -1,3 +1,5 @@
+import { checkForDuplicates, filterCardsByCategory, deleteCardById } from '../utils/index';
+
 export const ADD_CARD  = 'ADD_CARD';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
 export const DELETE_CARD = 'DELETE_CARD';
@@ -8,25 +10,9 @@ export const STUDY_CATEGORY_SELECTED = 'STUDY_CATEGORY_SELECTED';
 export const CATEGORIES_CATEGORY_SELECTED = 'CATEGORIES_CATEGORY_SELECTED';
 export const TOGGLE_CARD = 'TOGGLE_CARD';
 
-
-function filterCardsByCategory(cards, category) {
-  return cards.filter(card => card.category === category)
-}
-
-
-function checkForDuplicates(categories, categoryToAdd) {
-  return categories.filter(category => category.name === categoryToAdd);
-}
-
-export function deleteCardById(array, id) {
-  return array.filter(card => card.id !== id);
-}
-
-
 export const addCard = (card) => {
   return (dispatch, getState) => {
     const { cards, categories } = getState();
-    console.log(cards.nextIdToCard);
     dispatch({
       type: ADD_CARD,
       card: {
@@ -47,7 +33,7 @@ export const addCard = (card) => {
       });
     }
   };
-}
+};
 
 export const nextCard = () => {
   return (dispatch, getState) => {
@@ -63,6 +49,7 @@ export const nextCard = () => {
 export const prevCard = () => {
   return (dispatch, getState) => {
     const { studyView } = getState();
+    //if card id is 0 go to last card, otherwise go prev
     const prevCardId = studyView.id === 0 ? studyView.cards.length -1 : studyView.id -1;
     dispatch({
       type: PREV_CARD,
@@ -81,7 +68,6 @@ export const  toggleCard = (bool) => {
 
 export const deleteCard = (card) => {
   return (dispatch, getState) => {
-    console.log(card);
     const { cards, categories } = getState();
     const newCards = deleteCardById(cards.cards, card.id);
 
@@ -105,21 +91,20 @@ export const deleteCard = (card) => {
   }
 }
 
-export const selectStudyCategory = (bool, name) => {
+export const selectStudyCategory = (showCard, name) => {
   return (dispatch, getState) => {
-    console.log(getState());
     const { cards, studyView } = getState();
     const filteredCards = filterCardsByCategory(cards.cards, name);
 
     if (studyView.category !== null) {
-      bool = !bool;
+      showCard = !showCard;
     }
 
     dispatch({
       type: STUDY_CATEGORY_SELECTED,
       cards: filteredCards,
       category: name,
-      showCard: !bool,
+      showCard: !showCard,
       id: 0,
     });
   };

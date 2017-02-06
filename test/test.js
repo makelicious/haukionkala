@@ -22,7 +22,6 @@ describe('<Study />', () => {
   });
 
   it('should show next question', () => {
-    console.log(mockstore.getState());
     expect(mockstore.getState().studyView.id).to.equal(0);
     wrapper.find('.card__question__nav').first().simulate('click');
     expect(mockstore.getState().studyView.id).to.not.equal(1);
@@ -33,9 +32,10 @@ describe('<Study />', () => {
 describe('<Categories />', () => {
   const wrapper = mount(<Provider store={mockstore}><Categories /></Provider>);
   it('should show list of questions', () => {
+    expect(wrapper.find('.categories__list__item'));
     wrapper.find('.categories__list__item').first().simulate('click');
     expect(wrapper.find('.questions__list__item')).to.have.length(3);
-    wrapper.find('.categories__list__item').simulate('click');
+    wrapper.find('.categories__list__item--active').simulate('click');
     expect(wrapper.find('.questions__list__item')).to.have.length(0);
   });
 });

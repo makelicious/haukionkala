@@ -1,8 +1,9 @@
 import {
   ADD_CARD,
-  DELETE_CARD,
-  deleteCardById
+  DELETE_CARD
 } from '../actions/index';
+
+import { deleteCardById } from '../utils/index';
 
 const test = 'how to, click me!';
 
