@@ -1,8 +1,15 @@
 import React from 'react';
 
 class Study extends React.Component {
-
   render() {
+    console.log(this.props.shuffle);
+    let shuffleClass = 'study-mode';
+    let chronoClass = 'study-mode--active';
+
+    if(this.props.shuffle) {
+      shuffleClass = 'study-mode--active';
+      chronoClass = 'study-mode';
+    }
     let answer = this.props.showAnswer ?
       <div className='card__answer'>
         <h3 className='card__answer__title'>Answer</h3>
@@ -27,7 +34,18 @@ class Study extends React.Component {
 
     return (
       <div className='container'>
-        <h2 className='container__title'>Study mode</h2>
+        <h2 className='container__title'>Study mode
+          <span
+            className={chronoClass}
+            onClick={() => {this.props.selectMode(false)}}>
+            Chronological
+          </span>
+          <span
+            className={shuffleClass}
+            onClick={() => {this.props.selectMode(true)}}>
+            Shuffle
+          </span>
+        </h2>
         <div className='categories'>
           <ul className='categories__list'>
             {this.props.categories.map(category =>

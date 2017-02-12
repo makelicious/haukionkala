@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { nextCard, prevCard, toggleCard, selectStudyCategory } from '../actions/index';
+import { nextCard, prevCard, toggleCard, selectStudyCategory, selectStudyMode } from '../actions/index';
 import Study from '../components/study';
 
 const currentCard = (cards, id) => {
@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
     showAnswer: studyView.showAnswer,
     showCard: studyView.showCard,
     currentId: studyView.id,
+    shuffle: studyView.shuffle
   };
 };
 
@@ -32,6 +33,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     selectCategory: (showCard, name) => {
       dispatch(selectStudyCategory(showCard, name));
+    },
+    selectMode: (mode) => {
+      dispatch(selectStudyMode(mode));
     },
   };
 };

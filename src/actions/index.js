@@ -1,4 +1,4 @@
-import { checkForDuplicates, filterCardsByCategory, deleteCardById } from '../utils/index';
+import { checkForDuplicates, filterCardsByCategory, deleteCardById, shuffleCards } from '../utils/index';
 
 export const ADD_CARD  = 'ADD_CARD';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
@@ -9,6 +9,7 @@ export const PREV_CARD = 'PREV_CARD';
 export const STUDY_CATEGORY_SELECTED = 'STUDY_CATEGORY_SELECTED';
 export const CATEGORIES_CATEGORY_SELECTED = 'CATEGORIES_CATEGORY_SELECTED';
 export const TOGGLE_CARD = 'TOGGLE_CARD';
+export const SELECT_MODE = 'SELECT_MODE';
 
 export const addCard = (card) => {
   return (dispatch, getState) => {
@@ -58,10 +59,17 @@ export const prevCard = () => {
   }
 }
 
-export const  toggleCard = (bool) => {
+export const toggleCard = (bool) => {
   return {
     type: TOGGLE_CARD,
     showAnswer: !bool
+  };
+}
+
+export const selectStudyMode = (shuffle) => {
+  return {
+    type: SELECT_MODE,
+    shuffle
   };
 }
 
@@ -99,10 +107,11 @@ export const selectStudyCategory = (showCard, name) => {
     if (studyView.category !== null) {
       showCard = !showCard;
     }
+    console.log(studyView.shuffle);
 
     dispatch({
       type: STUDY_CATEGORY_SELECTED,
-      cards: filteredCards,
+      cards: studyView.shuffle ? shuffleCards(filteredCards) : filteredCards,
       category: name,
       showCard: !showCard,
       id: 0,

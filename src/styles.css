@@ -176,6 +176,18 @@ body,
   cursor: pointer;
 }
 
+.study-mode {
+  font-size: 0.5em;
+  margin-left: 1em;
+  align-self: center;
+}
+
+.study-mode--active {
+  font-size: 0.8em;
+  margin-left: 1em;
+  align-self: center;
+}
+
 
 /*Categories*/
 

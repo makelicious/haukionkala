@@ -6,6 +6,7 @@ import {
   DELETE_CARD,
   DELETE_CATEGORY,
   STUDY_CATEGORY_SELECTED,
+  SELECT_MODE
 } from '../actions/index';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   id: 0,
   showAnswer: false,
   showCard: false,
+  shuffle: false
 };
 
 const studyView = (state = initialState, action) => {
@@ -44,7 +46,10 @@ const studyView = (state = initialState, action) => {
         id: action.id,
       });
     case TOGGLE_CARD:
-      return {...state, showAnswer: action.showAnswer};
+      return { ...state, showAnswer: action.showAnswer };
+    case SELECT_MODE:
+      console.log(action);
+      return { ...state, shuffle: action.shuffle };
     default:
       return state;
   }
