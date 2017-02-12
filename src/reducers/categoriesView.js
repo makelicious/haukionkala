@@ -2,8 +2,9 @@ import {
   ADD_CARD,
   DELETE_CARD,
   CATEGORIES_CATEGORY_SELECTED,
-  deleteCardById
 } from '../actions/index';
+
+import { deleteCardById } from '../utils/index';
 
 
 const initialState = {
