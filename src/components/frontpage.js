@@ -6,7 +6,7 @@ function frontPage() {
     <div className='front-page'>
     <div className='front-page__header'>
       <div className='logo-container'></div>
-      <h1>&nbsp;= KALA</h1>
+      <h1 className="front-page__header__title">&nbsp;= KALA</h1>
     </div>
       <div className='front-page__content'>
         <h2 className='front-page__content__title'>Have you ever tried to remember something?</h2>

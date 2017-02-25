@@ -2,7 +2,6 @@ import React from 'react';
 
 class Study extends React.Component {
   render() {
-    console.log(this.props.shuffle);
     let shuffleClass = 'study-mode';
     let chronoClass = 'study-mode--active';
 

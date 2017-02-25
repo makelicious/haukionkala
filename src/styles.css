@@ -240,13 +240,8 @@ body,
 .questions__list__item {
   border: 1px solid #CBC9CF;
   background-color: #fff;
+  margin-bottom: 0.5em;
 }
-
-.questions__list__item:nth-child(even){
-	border-bottom: 0;
-  border-top: 0;
-}
-
 
 .list__item__text {
   display: flex;
@@ -254,11 +249,17 @@ body,
 }
 
 .list__item__delete {
-  display: inline-block;
+  display: inline;
   float: right;
-  margin-right: 0.3em;
+  margin: 0.3em 0.3em;
+
+  padding: 0;
   color: #2b2b2b;
-  font-size: 2em;
+  font-size: 0.8em;
+}
+
+.list__item__delete:hover {
+  cursor: pointer;
 }
 
 
@@ -275,7 +276,10 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 0;
+}
+
+.front-page__header__title {
+  color: #f58b47;
 }
 
 

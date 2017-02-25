@@ -48,7 +48,6 @@ const studyView = (state = initialState, action) => {
     case TOGGLE_CARD:
       return { ...state, showAnswer: action.showAnswer };
     case SELECT_MODE:
-      console.log(action);
       return { ...state, shuffle: action.shuffle };
     default:
       return state;

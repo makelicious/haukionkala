@@ -107,7 +107,6 @@ export const selectStudyCategory = (showCard, name) => {
     if (studyView.category !== null) {
       showCard = !showCard;
     }
-    console.log(studyView.shuffle);
 
     dispatch({
       type: STUDY_CATEGORY_SELECTED,

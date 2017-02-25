@@ -16,7 +16,7 @@ function Categories(props) {
               <span
                 className='list__item__delete'
                 onClick={() => props.onDeleteClick(card)}>
-                &#10799;
+                &#10006;
               </span>
               <p className='list__item__text'>Question: {card.question}</p>
               <p className='list__item__text'>Answer: {card.answer}</p>
