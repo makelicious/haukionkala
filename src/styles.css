@@ -121,6 +121,7 @@ body,
 
 
 
+
 .card-form__button {
   padding: 0.5em 4em;
   margin-bottom: 1em;
@@ -135,6 +136,13 @@ body,
 
 .card-form__button:hover {
   background-color: #F26d21;
+}
+
+.card-notification {
+  margin: 0;
+  padding: 0.5em 0;
+  color: #fff;
+  background-color: #f58b47;
 }
 
 /*Study*/

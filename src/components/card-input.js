@@ -56,8 +56,9 @@ export class CardInput extends React.Component {
 
   render() {
     const addNotification = this.state.cardAdded ?
-      <p class='card-notification'>Card added!</p> :
-      null;
+     <p className='card-notification'>Card added!</p> :
+     null;
+
     return (
       <div className='container'>
         <h2 className='container__title'>Submit a new question</h2>
