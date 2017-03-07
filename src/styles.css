@@ -143,6 +143,17 @@ body,
   padding: 0.5em 0;
   color: #fff;
   background-color: #f58b47;
+  animation: appear .3s;
+
+}
+
+@keyframes appear {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 /*Study*/
