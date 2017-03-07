@@ -12,24 +12,38 @@ export class CardInput extends React.Component {
         question: '',
         answer: '',
         category: ''
-      }
+      },
+      cardAdded: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.hideNotification = this.hideNotification.bind(this);
   }
 
+  
+
+  hideNotification() {
+    this.setState({
+      ...this.state,
+      cardAdded: false,
+    });
+  }
 
   handleSubmit(event) {
     event.preventDefault();
 
     this.props.addCard(this.state.card);
     this.setState({
-      card: Object.assign({}, this.state.card, {
+      card: {
+        ...this.state.card,
         question: '',
-        answer: ''
-      })
+        answer: '',
+      },
+      cardAdded: true,
     });
+    setTimeout(this.hideNotification, 3000);
+    
   }
 
   handleChange(event) {
@@ -41,9 +55,13 @@ export class CardInput extends React.Component {
   }
 
   render() {
+    const addNotification = this.state.cardAdded ?
+      <p class='card-notification'>Card added!</p> :
+      null;
     return (
       <div className='container'>
         <h2 className='container__title'>Submit a new question</h2>
+        {addNotification}
         <form
           className='card-form'
           onChange={this.handleChange}
