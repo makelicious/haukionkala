@@ -52,6 +52,11 @@ export class CardInput extends React.Component {
         [event.target.id]: event.target.value
       })
     });
+
+    const filledFields = this.state.card.filter((field) => {
+      return field.value.length > 0;
+    });
+    console.log(filledFields);
   }
 
   render() {
