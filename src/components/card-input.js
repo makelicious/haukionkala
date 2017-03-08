@@ -19,6 +19,7 @@ export class CardInput extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.hideNotification = this.hideNotification.bind(this);
+    // this.clearField = this.clearField.bind(this);
   }
 
   
@@ -62,6 +63,7 @@ export class CardInput extends React.Component {
     const addNotification = this.state.cardAdded ?
      <p className='card-notification'>Card added!</p> :
      null;
+     const emptyField = <span className='clear'>&#10006;</span>
 
     return (
       <div className='container'>
@@ -76,6 +78,7 @@ export class CardInput extends React.Component {
             className='input__label'>
             Question
           </label><br/>
+          {emptyField}
           <input
             className='card-form__input'
             type='text'
@@ -86,6 +89,7 @@ export class CardInput extends React.Component {
             className='input__label'>
             Answer
           </label><br/>
+          {emptyField}
           <input
             className='card-form__input'
             type='text'
@@ -96,6 +100,7 @@ export class CardInput extends React.Component {
             className='input__label'>
             Category
           </label><br/>
+          {emptyField}
           <input
             className='card-form__input'
             type='text'
