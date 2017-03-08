@@ -2,15 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addCard } from '../actions/index';
 
-const emptyField = (name) => {
-        <span
-        className='clear'
-        onClick={this.clearField(name)}
-        >&#10006;
-      </span>
-}
-
-
 export class CardInput extends React.Component {
   constructor() {
 
