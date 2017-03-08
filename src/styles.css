@@ -147,6 +147,12 @@ body,
   float: left;
 }
 
+.clear:hover {
+  background-color: #F26d21;
+  cursor: pointer;
+
+}
+
 .card-notification {
   margin: 0;
   padding: 0.5em 0;
