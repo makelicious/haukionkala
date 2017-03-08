@@ -33,17 +33,21 @@ export class CardInput extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.props.addCard(this.state.card);
-    this.setState({
-      card: {
-        ...this.state.card,
-        question: '',
-        answer: '',
-      },
-      cardAdded: true,
-    });
-    setTimeout(this.hideNotification, 3000);
-    
+    const allFilled = Object.keys(this.state.card)
+      .every((key) => this.state.card[key] !== '');
+
+    if(allFilled) {
+      this.props.addCard(this.state.card);
+      this.setState({
+        card: {
+          ...this.state.card,
+          question: '',
+          answer: '',
+        },
+        cardAdded: true,
+      });
+      setTimeout(this.hideNotification, 3000);
+    }
   }
 
   handleChange(event) {
@@ -52,11 +56,6 @@ export class CardInput extends React.Component {
         [event.target.id]: event.target.value
       })
     });
-
-    const filledFields = this.state.card.filter((field) => {
-      return field.value.length > 0;
-    });
-    console.log(filledFields);
   }
 
   render() {
