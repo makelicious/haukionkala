@@ -139,7 +139,6 @@ body,
 }
 
 .clear {
-  background-color: #f58b47;
   margin-left: 1em;
   margin-top: .5em;
   margin-right: 1em;
@@ -149,7 +148,7 @@ body,
 }
 
 .clear:hover {
-  background-color: #F26d21;
+  background-color: #dadedf;
   cursor: pointer;
 
 }
