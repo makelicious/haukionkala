@@ -41,13 +41,12 @@ describe('<Categories />', () => {
 });
 
 describe('<CardInput />', () => {
-  it('should upload question', () => {
+  it('shouldnt upload question when fields are empty', () => {
     const wrapper = mount(<Provider store={mockstore}><CardInput /></Provider>);
     expect(mockstore.getState().cards.nextIdToCard).to.equal(0);
     expect(mockstore.getState().cards.cards).to.have.length(3);
-    wrapper.find('form').simulate('submit');
-    expect(mockstore.getState().cards.nextIdToCard).to.equal(1);
-    expect(mockstore.getState().cards.cards).to.have.length(4);
-
+    wrapper.find('.card-form__button').simulate('submit');
+    expect(mockstore.getState().cards.nextIdToCard).to.equal(0);
+    expect(mockstore.getState().cards.cards).to.have.length(3);
   });
 });
