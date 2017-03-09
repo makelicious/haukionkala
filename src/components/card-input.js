@@ -59,10 +59,9 @@ export class CardInput extends React.Component {
   }
 
   clearField(name) {
-    const that = this;
-    return function() {
-      that.setState({
-        card: Object.assign({}, that.state.card, {
+    return () => {
+      this.setState({
+        card: Object.assign({}, this.state.card, {
           [name]: '',
         })
       });
