@@ -25,6 +25,7 @@ describe('<Study />', () => {
     expect(mockstore.getState().studyView.id).to.equal(0);
     wrapper.find('.card__question__nav').first().simulate('click');
     expect(mockstore.getState().studyView.id).to.not.equal(1);
+    expect(mockstore.getState().studyView.showAnswer).to.equal(false);
   });
 });
 
@@ -50,3 +51,6 @@ describe('<CardInput />', () => {
     expect(mockstore.getState().cards.cards).to.have.length(3);
   });
 });
+
+
+
