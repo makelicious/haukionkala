@@ -19,14 +19,14 @@ class Study extends React.Component {
 
       let question = this.props.showCard ?
       <div className='card-wrapper'>
-        <span className='card__question__nav' onClick={this.props.onPrevClick}>&lt;</span>
+        <span className='card__question__nav' onClick={this.props.onPrevClick}>&#10094;</span>
         <div className='card'>
           <div className='card__question' onClick={() => {this.props.toggle(this.props.showAnswer)}}>
             <h3 className='card__question__title'>Question {this.props.currentId + 1} / {this.props.amountOfCards}</h3>
             <span className='card__question__text'>{this.props.card.question}</span>
           </div>
         </div>
-        <span className='card__question__nav' onClick={this.props.onNextClick}>&gt;</span>
+        <span className='card__question__nav' onClick={this.props.onNextClick}>&#10095;</span>
       </div>
         :
         null;
