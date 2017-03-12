@@ -67,10 +67,14 @@ export const toggleCard = (bool) => {
 }
 
 export const selectStudyMode = (shuffle) => {
-  return {
-    type: SELECT_MODE,
-    shuffle
-  };
+  return(dispatch, getState) => {
+    dispatch({
+      type: SELECT_MODE,
+      shuffle
+    });
+    const { studyView } = getState();
+    dispatch(selectStudyCategory(studyView.showCard, studyView.category));
+  }
 }
 
 
@@ -110,7 +114,8 @@ export const selectStudyCategory = (showCard, name) => {
 
     dispatch({
       type: STUDY_CATEGORY_SELECTED,
-      cards: studyView.shuffle ? shuffleCards(filteredCards) : filteredCards,
+      cards: filteredCards,
+      shuffle: studyView.shuffle,
       category: name,
       showCard: !showCard,
       id: 0,

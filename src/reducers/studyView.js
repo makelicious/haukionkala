@@ -9,6 +9,10 @@ import {
   SELECT_MODE
 } from '../actions/index';
 
+import {
+  shuffleCards
+} from '../utils/index';
+
 const initialState = {
   category: null,
   cards: [],
@@ -35,17 +39,20 @@ const studyView = (state = initialState, action) => {
       return state;
 
     case STUDY_CATEGORY_SELECTED:
-      if(action.category !== state.category) {
-        return {...state, category: action.category, cards: action.cards, showCard: action.showCard, id: action.id, showAnswer: false};
-      }
-      return initialState;
+        return {...state,
+          category: action.category,
+          cards: action.shuffle ? shuffleCards(action.cards) : action.cards,
+          showCard: action.showCard,
+          id: action.id,
+          showAnswer: false
+        };
     case NEXT_CARD:
     case PREV_CARD:
       return {...state, id: action.id, showAnswer: false};
     case TOGGLE_CARD:
       return { ...state, showAnswer: action.showAnswer };
     case SELECT_MODE:
-      return { ...state, shuffle: action.shuffle };
+      return { ...state, shuffle: action.shuffle};
     default:
       return state;
   }
