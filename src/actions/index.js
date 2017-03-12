@@ -1,4 +1,4 @@
-import { checkForDuplicates, filterCardsByCategory, deleteCardById, shuffleCards } from '../utils/index';
+import { checkForDuplicates, filterCardsByCategory, deleteCardById } from '../utils/index';
 
 export const ADD_CARD  = 'ADD_CARD';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
@@ -66,18 +66,6 @@ export const toggleCard = (bool) => {
   };
 }
 
-export const selectStudyMode = (shuffle) => {
-  return(dispatch, getState) => {
-    dispatch({
-      type: SELECT_MODE,
-      shuffle
-    });
-    const { studyView } = getState();
-    dispatch(selectStudyCategory(studyView.showCard, studyView.category));
-  }
-}
-
-
 export const deleteCard = (card) => {
   return (dispatch, getState) => {
     const { cards, categories } = getState();
@@ -122,6 +110,17 @@ export const selectStudyCategory = (showCard, name) => {
     });
   };
 };
+
+export const selectStudyMode = (shuffle) => {
+  return(dispatch, getState) => {
+    dispatch({
+      type: SELECT_MODE,
+      shuffle
+    });
+    const { studyView } = getState();
+    dispatch(selectStudyCategory(studyView.showCard, studyView.category));
+  }
+}
 
 export const selectCategoriesCategory = (category) => {
   return (dispatch, getState) => {
