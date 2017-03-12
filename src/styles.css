@@ -211,13 +211,21 @@ body,
 }
 
 .study-mode {
-  font-size: 0.5em;
   margin-left: 1em;
   align-self: center;
+  padding-bottom: 3px;
+}
+
+.study-mode:hover {
+  cursor: pointer;
+  padding-bottom: 2px;
+  border-bottom:2px solid #F58B4C;
 }
 
 .study-mode--active {
-  font-size: 0.8em;
+  color: #000;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #F26d21;
   margin-left: 1em;
   align-self: center;
 }
