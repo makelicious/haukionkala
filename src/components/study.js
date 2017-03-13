@@ -1,6 +1,48 @@
 import React from 'react';
 
+import {
+  isLeft,
+  isUp,
+  isRight,
+  isDown
+} from '../utils/keys';
+
+
 class Study extends React.Component {
+
+  constructor() {
+    super();
+    this.checkKeyPresses = this.checkKeyPresses.bind(this);
+  }
+
+  checkKeyPresses(event) {
+      if(isLeft(event.keyCode)) {
+        event.preventDefault();
+        this.props.onPrevClick();
+      }
+      if(isUp(event.keyCode)) {
+        event.preventDefault();
+        this.props.toggle(true);
+      }
+      if(isRight(event.keyCode)) {
+        event.preventDefault();
+        this.props.onNextClick();
+      
+      }
+      if(isDown(event.keyCode)) {
+        event.preventDefault();
+        this.props.toggle(false);
+      } 
+  }
+
+  componentDidMount() {
+    window.addEventListener('keydown', this.checkKeyPresses);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown',this.checkKeyPresses);
+  }
+
   render() {
     let shuffleClass = 'study-mode';
     let chronoClass = 'study-mode--active';
@@ -46,7 +88,8 @@ class Study extends React.Component {
           </span>
         </h2>
         <div className='categories'>
-          <ul className='categories__list'>
+          <ul 
+            className='categories__list'>
             {this.props.categories.map(category =>
             <li
               className={this.props.category === category.name ? 'categories__list__item--active' : 'categories__list__item'}
