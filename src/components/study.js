@@ -4,7 +4,8 @@ import {
   isLeft,
   isUp,
   isRight,
-  isDown
+  isDown,
+  isSpace
 } from '../utils/keys';
 
 
@@ -32,7 +33,11 @@ class Study extends React.Component {
       if(isDown(event.keyCode)) {
         event.preventDefault();
         this.props.toggle(false);
-      } 
+      }
+      if(isSpace(event.keyCode)) {
+        event.preventDefault();
+        this.props.toggle(this.props.showAnswer);  
+      }
   }
 
   componentDidMount() {
