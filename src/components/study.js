@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import {
   isLeft,
@@ -49,13 +50,17 @@ class Study extends React.Component {
   }
 
   render() {
-    let shuffleClass = 'study-mode';
-    let chronoClass = 'study-mode--active';
 
-    if(this.props.shuffle) {
-      shuffleClass = 'study-mode--active';
-      chronoClass = 'study-mode';
-    }
+    const chronologicalClass = classNames({
+      'study-mode': this.props.shuffle,
+      'study-mode--active': !this.props.shuffle
+    });
+
+    const shuffleClass = classNames({
+      'study-mode': !this.props.shuffle,
+      'study-mode--active': this.props.shuffle
+    });
+
     let answer = this.props.showAnswer ?
       <div className='card__answer'>
         <h3 className='card__answer__title'>Answer</h3>
@@ -65,16 +70,16 @@ class Study extends React.Component {
       null;
 
       let question = this.props.showCard ?
-      <div className='card-wrapper'>
-        <span className='card__question__nav' onClick={this.props.onPrevClick}>&#10094;</span>
-        <div className='card'>
-          <div className='card__question' onClick={() => {this.props.toggle(this.props.showAnswer)}}>
-            <h3 className='card__question__title'>Question {this.props.currentId + 1} / {this.props.amountOfCards}</h3>
-            <span className='card__question__text'>{this.props.card.question}</span>
+        <div className='card-wrapper'>
+          <span className='card__question__nav' onClick={this.props.onPrevClick}>&#10094;</span>
+          <div className='card'>
+            <div className='card__question' onClick={() => {this.props.toggle(this.props.showAnswer)}}>
+              <h3 className='card__question__title'>Question {this.props.currentId + 1} / {this.props.amountOfCards}</h3>
+              <span className='card__question__text'>{this.props.card.question}</span>
+            </div>
           </div>
+          <span className='card__question__nav' onClick={this.props.onNextClick}>&#10095;</span>
         </div>
-        <span className='card__question__nav' onClick={this.props.onNextClick}>&#10095;</span>
-      </div>
         :
         null;
 
@@ -82,7 +87,7 @@ class Study extends React.Component {
       <div className='container'>
         <h2 className='container__title'>Study mode
           <span
-            className={chronoClass}
+            className={chronologicalClass}
             onClick={() => {this.props.selectMode(false)}}>
             Chronological
           </span>
@@ -97,7 +102,7 @@ class Study extends React.Component {
             className='categories__list'>
             {this.props.categories.map(category =>
             <li
-              className={this.props.category === category.name ? 'categories__list__item--active' : 'categories__list__item'}
+              className={category.name === this.props.category ? 'categories__list__item--active' : 'categories__list__item'}
               onClick={()=> {this.props.selectCategory(this.props.showCard, category.name)}}
               key={category.id}>
               <h3 className='list__item__title'>{category.name}</h3>
@@ -108,7 +113,7 @@ class Study extends React.Component {
         {question}
         {answer}
       </div>
-    )
+    );
   }
 }
 

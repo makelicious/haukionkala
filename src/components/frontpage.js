@@ -15,7 +15,7 @@ function frontPage() {
         <Link to='/study' className='front-page__link'>Jump in!</Link>
       </div>
     </div>
-  )
+  );
 }
 
 export default frontPage;

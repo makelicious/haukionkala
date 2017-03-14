@@ -19,6 +19,7 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.2",

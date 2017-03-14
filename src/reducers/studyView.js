@@ -33,11 +33,10 @@ const studyView = (state = initialState, action) => {
       return state;
     case ADD_CARD:
       if (action.card.category === state.category) {
-        const updatedState = {...state, cards:[...state.cards, action.card] };
-        return updatedState;
+        return {...state, cards: [...state.cards, action.card] };
+        
       }
       return state;
-
     case STUDY_CATEGORY_SELECTED:
         return {...state,
           category: action.category,

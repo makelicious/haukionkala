@@ -43,9 +43,9 @@ export const nextCard = () => {
     dispatch({
       type: NEXT_CARD,
       id: nextCardId
-    })
+    });
   };
-}
+};
 
 export const prevCard = () => {
   return (dispatch, getState) => {
@@ -55,16 +55,16 @@ export const prevCard = () => {
     dispatch({
       type: PREV_CARD,
       id: prevCardId
-    })
-  }
-}
+    });
+  };
+};
 
 export const toggleCard = (bool) => {
   return {
     type: TOGGLE_CARD,
     showAnswer: !bool
   };
-}
+};
 
 export const deleteCard = (card) => {
   return (dispatch, getState) => {
@@ -88,8 +88,8 @@ export const deleteCard = (card) => {
         deletedCategory: card.category
       });
     }
-  }
-}
+  };
+};
 
 export const selectStudyCategory = (showCard, name) => {
   return (dispatch, getState) => {
@@ -119,8 +119,8 @@ export const selectStudyMode = (shuffle) => {
     });
     const { studyView } = getState();
     dispatch(selectStudyCategory(studyView.showCard, studyView.category));
-  }
-}
+  };
+};
 
 export const selectCategoriesCategory = (category) => {
   return (dispatch, getState) => {
@@ -132,6 +132,6 @@ export const selectCategoriesCategory = (category) => {
       type: CATEGORIES_CATEGORY_SELECTED,
       cards: filteredCards,
       category: category,
-    })
-  }
-}
+    });
+  };
+};

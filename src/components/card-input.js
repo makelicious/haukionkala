@@ -48,6 +48,7 @@ export class CardInput extends React.Component {
       });
       setTimeout(this.hideNotification, 3000);
     }
+    return;
   }
 
   handleChange(event) {
@@ -65,7 +66,7 @@ export class CardInput extends React.Component {
           [name]: '',
         })
       });
-    }
+    };
   }
 
   render() {
@@ -140,13 +141,13 @@ export class CardInput extends React.Component {
 const mapStateToProps = (state) => {
   return {
     nextIdToCard: state.nextIdToCard
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addCard: (card) => dispatch(addCard(card))
   };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardInput)
