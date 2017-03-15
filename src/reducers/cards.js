@@ -1,6 +1,7 @@
 import {
   ADD_CARD,
-  DELETE_CARD
+  DELETE_CARD,
+  EDIT_CARD
 } from '../actions/index';
 
 import { deleteCardById } from '../utils/index';
@@ -27,6 +28,7 @@ const initialState = {
     category: test,
   }],
   nextIdToCard: 0,
+  currentlyEditable: null,
 };
 
 const card = (state = {}, action) => {
@@ -45,11 +47,14 @@ const card = (state = {}, action) => {
 
 
 const cards = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case ADD_CARD:
       return { cards: state.cards.concat(card(undefined, action)), nextIdToCard: action.card.id + 1 };
     case DELETE_CARD:
       return { ...state, cards: deleteCardById(state.cards, action.id) };
+    case EDIT_CARD:
+      return {...state, currentlyEditable: action.id};
     default:
       return state;
   }

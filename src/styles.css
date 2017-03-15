@@ -305,6 +305,11 @@ body,
   cursor: pointer;
 }
 
+.list__item__edit {
+  float: right;
+  margin: 0.3em 0.3em;
+}
+
 
 /*Front page*/
 

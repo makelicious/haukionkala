@@ -1,14 +1,16 @@
 import { checkForDuplicates, filterCardsByCategory, deleteCardById } from '../utils/index';
 
 export const ADD_CARD  = 'ADD_CARD';
-export const ADD_CATEGORY = 'ADD_CATEGORY';
 export const DELETE_CARD = 'DELETE_CARD';
-export const DELETE_CATEGORY = 'DELETE_CATEGORY';
+export const EDIT_CARD = 'EDIT_CARD';
+export const SAVE_CARD = 'SAVE_CARD';
 export const NEXT_CARD = 'NEXT_CARD';
 export const PREV_CARD = 'PREV_CARD';
+export const TOGGLE_CARD = 'TOGGLE_CARD';
+export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 export const STUDY_CATEGORY_SELECTED = 'STUDY_CATEGORY_SELECTED';
 export const CATEGORIES_CATEGORY_SELECTED = 'CATEGORIES_CATEGORY_SELECTED';
-export const TOGGLE_CARD = 'TOGGLE_CARD';
 export const SELECT_MODE = 'SELECT_MODE';
 
 export const addCard = (card) => {
@@ -90,6 +92,17 @@ export const deleteCard = (card) => {
     }
   };
 };
+
+export const editCard = (id) => {
+  return {
+    type: EDIT_CARD,
+    id
+  }
+}
+//TODO
+export const saveCard = (id) => {
+
+}
 
 export const selectStudyCategory = (showCard, name) => {
   return (dispatch, getState) => {
