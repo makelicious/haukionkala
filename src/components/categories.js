@@ -32,8 +32,10 @@ function Categories(props) {
                 onClick={() => {props.onEditClick(card.id)}}>
                 &#x270e;
               </span>
-              <p className='list__item__text'>Question: {card.question}</p>
-              <p className='list__item__text'>Answer: {card.answer}</p>
+              <p className='list__item__header'>Question:</p>
+              <p className='list__item__text'>{card.question}</p>
+              <p className='list__item__header'>Answer:</p>
+              <p className='list__item__text'>{card.answer}</p>
           </li>,
         )}
         </ul>

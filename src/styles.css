@@ -286,9 +286,18 @@ body,
   margin-bottom: 0.5em;
 }
 
-.list__item__text {
+.list__item__header {
   display: flex;
   margin-left: 1em;
+  font-size: 1.1em;
+  
+}
+
+.list__item__text {
+  font-family: 'Roboto';
+  justify-content: flex-start;
+  width: 90%;
+  margin: 1em 1.25em;
 }
 
 .list__item__delete {
