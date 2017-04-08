@@ -47,7 +47,6 @@ const card = (state = {}, action) => {
 
 
 const cards = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case ADD_CARD:
       return { cards: state.cards.concat(card(undefined, action)), nextIdToCard: action.card.id + 1 };
