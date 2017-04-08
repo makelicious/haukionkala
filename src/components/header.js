@@ -9,6 +9,7 @@ function Header() {
         <Link className='navigation__link' activeClassName="navigation__link_active" to='/categories'>Categories</Link>
         <Link className='navigation__link' activeClassName="navigation__link_active" to='/add'>Add&nbsp;questions</Link>
         <Link className='navigation__link' activeClassName="navigation__link_active" to='/study'>Study</Link>
+        <Link className='navigation__link' activeClassName="navigation__link_active" to='/memorygame'>Memory game</Link>
       </nav>
     </header>
   );

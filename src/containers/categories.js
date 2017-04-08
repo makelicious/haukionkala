@@ -3,7 +3,6 @@ import Categories from '../components/categories';
 import { selectCategoriesCategory, deleteCard, editCard, saveCard } from '../actions/index';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   const { categoriesView, cards } = state;
 
   return {

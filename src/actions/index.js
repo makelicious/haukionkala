@@ -100,8 +100,18 @@ export const editCard = (id) => {
   }
 }
 //TODO
-export const saveCard = (id) => {
+export const saveCard = (card) => {
+  return (dispatch) => {
+    dispatch({
+      type: SAVE_CARD,
+      card: card()
+    });
 
+    dispatch({
+      type: EDIT_CARD,
+      id: null
+    });
+  };
 }
 
 export const selectStudyCategory = (showCard, name) => {

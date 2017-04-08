@@ -1,10 +1,11 @@
 import {
   ADD_CARD,
   DELETE_CARD,
-  EDIT_CARD
+  EDIT_CARD,
+  SAVE_CARD
 } from '../actions/index';
 
-import { deleteCardById } from '../utils/index';
+import { deleteCardById, editCardById } from '../utils/index';
 
 const test = 'how to, click me!';
 
@@ -34,6 +35,7 @@ const initialState = {
 const card = (state = {}, action) => {
   switch (action.type) {
     case ADD_CARD:
+    case SAVE_CARD:
       return {
         id: action.card.id,
         question: action.card.question,
@@ -47,7 +49,6 @@ const card = (state = {}, action) => {
 
 
 const cards = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case ADD_CARD:
       return { cards: state.cards.concat(card(undefined, action)), nextIdToCard: action.card.id + 1 };
@@ -55,6 +56,8 @@ const cards = (state = initialState, action) => {
       return { ...state, cards: deleteCardById(state.cards, action.id) };
     case EDIT_CARD:
       return {...state, currentlyEditable: action.id};
+    case SAVE_CARD:
+      return {...state, cards: editCardById(state.cards, action.card)};
     default:
       return state;
   }

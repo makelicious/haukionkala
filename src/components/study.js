@@ -85,7 +85,7 @@ class Study extends React.Component {
 
     return (
       <div className='container'>
-        <h2 className='container__title'>Study mode
+        <h2 className='container__title'>Study mode:
           <span
             className={chronologicalClass}
             onClick={() => {this.props.selectMode(false)}}>

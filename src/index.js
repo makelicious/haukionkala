@@ -9,6 +9,7 @@ import CardInput from './components/card-input';
 import Study from './containers/study';
 import Categories from './containers/categories';
 import frontPage from './components/frontpage';
+import game from './components/game';
 import store from './store';
 
 
@@ -20,6 +21,7 @@ render(
         <Route path='/categories' component={Categories} />
         <Route path='/add' component={CardInput} />
         <Route path='/study' component={Study} />
+        <Route path='/memorygame' component={game} />>
       </Route>
     </Router>
   </Provider>,

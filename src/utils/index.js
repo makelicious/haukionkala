@@ -10,6 +10,13 @@ export function deleteCardById(array, id) {
   return array.filter(card => card.id !== id);
 }
 
+export function editCardById(array, card) {
+  const cardsWithoutEditedCard = deleteCardById(array, card.id);
+  console.log('kulli');
+  console.log(card);
+  return [...cardsWithoutEditedCard, card];
+}
+
 export function shuffleCards(array) {
   let newArray = [];
   let arrayOfNums = [];
