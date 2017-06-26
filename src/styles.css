@@ -13,7 +13,6 @@ body,
 
 .App {
   text-align: center;
-
   font: 16px "Open Sans", sans-serif;
 }
 
@@ -56,7 +55,7 @@ body,
 
 .navigation__link:hover {
   padding-bottom: 1px;
-  border-bottom:1px solid #F58B4C;
+  border-bottom: 1px solid #F58B4C;
 }
 
 
@@ -231,6 +230,9 @@ body,
   align-self: center;
 }
 
+.tip {
+  margin-top: 5em;
+}
 
 /*Categories*/
 
@@ -290,6 +292,8 @@ body,
   display: flex;
   margin-left: 1em;
   font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
   
 }
 
@@ -304,21 +308,30 @@ body,
   display: inline;
   float: right;
   margin: 0.3em 0.3em;
-
   padding: 0;
+  padding-bottom: 0.3em;
   color: #2b2b2b;
   font-size: 0.8em;
-}
-
-.list__item__delete:hover {
   cursor: pointer;
 }
 
 .list__item__edit {
   float: right;
   margin: 0.3em 0.3em;
+  cursor: pointer;
 }
 
+.save__button {
+  color: #fff;
+  background-color: #f58b47;
+  padding: 0.5em 0;
+  margin: 2em 5em 1em 5em;
+  cursor: pointer;
+}
+
+.save__button:hover {
+  background-color: #F26d21;
+}
 
 /*Front page*/
 

@@ -85,11 +85,11 @@ class Study extends React.Component {
 
     return (
       <div className='container'>
-        <h2 className='container__title'>Study mode
+        <h2 className='container__title'>Show cards:
           <span
             className={chronologicalClass}
             onClick={() => {this.props.selectMode(false)}}>
-            Chronological
+            Chronologically
           </span>
           <span
             className={shuffleClass}
@@ -112,7 +112,9 @@ class Study extends React.Component {
         </div>
         {question}
         {answer}
+        <span className="tip">You can use arrow keys to go through cards</span>
       </div>
+
     );
   }
 }
