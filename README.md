@@ -5,7 +5,7 @@ App for studying and remembering things
 
 ## Development
 
-###Installation
+### Installation
 ```bash
 npm install
 npm start
